@@ -1,0 +1,2 @@
+# RemindIQTest
+Testing gitignore
