@@ -22,7 +22,7 @@ namespace RemindIQ.Droid
         public override void OnCreate()
         {
             base.OnCreate();
-            RegisterActivityLifecycleCallbacks(this);
+            CrossCurrentActivity.Current.Init(this);
         }
 
         public override void OnTerminate()

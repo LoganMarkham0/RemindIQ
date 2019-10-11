@@ -6,11 +6,24 @@
              mc:Ignorable="d"
              x:Class="RemindIQ.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+    <StackLayout Orientation="Vertical">
+        <Button Text="Get GPS Location"
+                Clicked="Button_OnClicked"/>
+
+        <Label Text="Latitude"
+               TextColor="Gray"
+               FontSize="30"/>
+
+        <Label x:Name="LatitudeLabel"
+               FontSize="50"/>
+
+        <Label Text="Longitude"
+               TextColor="Gray"
+               FontSize="30"/>
+        
+        <Label x:Name="LongitudeLabel"
+               FontSize="50"/>
+
     </StackLayout>
 
 </ContentPage>
