@@ -19,7 +19,7 @@ namespace RemindIQ.Droid.Resources
         private Location location;
         private double latitude;
         private double longitude;
-        private String locationName;
+        private string locationName;
 
         GPSHelper()
         {
@@ -36,6 +36,18 @@ namespace RemindIQ.Droid.Resources
             return value;
         }
 
-        
+        public override string ToString()
+        {
+            string msg = "";
+            if(locationName != null)
+            {
+                msg += locationName;
+            }
+            else
+            {
+                msg += "Latitude: " + this.latitude + " Longitude: " + this.longitude;
+            }
+            return msg;
+        }
     }
 }
