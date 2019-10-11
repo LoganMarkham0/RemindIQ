@@ -6,50 +6,24 @@
              mc:Ignorable="d"
              x:Class="RemindIQ.MainPage">
 
-    <StackLayout>
-        <!-- This will be removed once the Toolbar is implemented in the next sprint. -->
-        <Frame BackgroundColor="#5E35B1">
-            <Label Text="RemindIQ" FontSize="Title" TextColor="#FFFFFF" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
-        </Frame>
+    <StackLayout Orientation="Vertical">
+        <Button Text="Get GPS Location"
+                Clicked="Button_OnClicked"/>
+
+        <Label Text="Latitude"
+               TextColor="Gray"
+               FontSize="30"/>
+
+        <Label x:Name="LatitudeLabel"
+               FontSize="50"/>
+
+        <Label Text="Longitude"
+               TextColor="Gray"
+               FontSize="30"/>
         
-        <!-- Reminder Functionality Buttons -->
-        <Label Text="Welcome to Xamarin.Forms!"
-               HorizontalOptions="Center"
-               VerticalOptions="CenterAndExpand" />
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="#FFFFFF" >
-            <Button Text="✗" 
-                HorizontalOptions="StartAndExpand" 
-                BackgroundColor="#b71c1c" 
-                CornerRadius="30"
-                WidthRequest="60"
-                HeightRequest="60"
-                TextColor="#FFFFFF" FontSize="Title" Margin="10,0,0,0"/>
-            <Button Text="✓" 
-                HorizontalOptions="CenterAndExpand" 
-                BackgroundColor="#36ba18" 
-                CornerRadius="30"
-                WidthRequest="60"
-                HeightRequest="60"
-                TextColor="#FFFFFF" FontSize="Title"/>
-            <Button Text="➕" 
-                HorizontalOptions="EndAndExpand" 
-                BackgroundColor="#2196F3"
-                CornerRadius="30"
-                WidthRequest="60"
-                HeightRequest="60"
-                TextColor="#FFFFFF" FontSize="Title" Margin="0,0,10,0"/>
-        </StackLayout>
-        <!-- This will be removed once the Tabbar is implemented in the next sprint. -->
-        <FlexLayout VerticalOptions="End" BackgroundColor="#5E35B1" JustifyContent="SpaceEvenly">
-            <Button Text="Open"
-                    BackgroundColor="#5e35b1" 
-                    TextColor="#FFFFFF" FontSize="Large" />
-            <Button Text="Missed"
-                    BackgroundColor="#5e35b1" 
-                    TextColor="#FFFFFF" FontSize="Large"/>
-            <Button Text="Closed"
-                    BackgroundColor="#5e35b1" 
-                    TextColor="#FFFFFF" FontSize="Large"/>
-        </FlexLayout>
+        <Label x:Name="LongitudeLabel"
+               FontSize="50"/>
+
     </StackLayout>
+
 </ContentPage>
