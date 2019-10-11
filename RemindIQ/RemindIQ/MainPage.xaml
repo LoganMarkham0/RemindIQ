@@ -1,26 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:LocationTest"
-             x:Class="LocationTest.MainPage">
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RemindIQ.MainPage">
 
-    <StackLayout Orientation="Vertical">
-        <Button Text="Get GPS Position"
-                Clicked="Button_OnClicked"/>
-
-        <Label Text="Latitude"
-               TextColor="Gray"
-               FontSize="30"/>
-
-        <Label x:Name="LatitudeLabel"
-               FontSize="50"/>
-
-        <Label x:Name="LongitudeLabel"
-               FontSize="50"/>
-
-        <Label Text="Longitude"
-               TextColor="Gray"
-               FontSize="30"/>
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label Text="Welcome to Xamarin.Forms!" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
     </StackLayout>
 
 </ContentPage>
