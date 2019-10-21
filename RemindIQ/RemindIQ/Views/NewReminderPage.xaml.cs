@@ -24,7 +24,7 @@ namespace RemindIQ.Views
             await Navigation.PopModalAsync();
         }
 
-        private void AddReminder_Clicked(object sender, EventArgs e)
+        async void AddReminder_Clicked(object sender, EventArgs e)
         {
             NewReminder.Name = Name.Text;
             NewReminder.DestinationAddress = Location.Text;
@@ -36,6 +36,7 @@ namespace RemindIQ.Views
             NewReminder.Status = 0;
 
             //Create the Reminder entry in the database
+            await Navigation.PopModalAsync();
         }
 
         private void RangeSlider_ValueChanged(object sender, ValueChangedEventArgs e)
