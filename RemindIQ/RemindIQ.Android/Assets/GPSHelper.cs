@@ -29,6 +29,35 @@ namespace RemindIQ.Droid.Resources
             LocationName = null;
         }
 
+        GPSHelper(string loc)
+        {
+            LocationName = loc;
+            TryToGetRemoteLocation(loc);
+        }
+
+        private async void TryToGetRemoteLocation(string loc)
+        {
+            try
+            {
+                var request = await Geocoding.GetLocationsAsync(loc);
+
+                Location = request?.FirstOrDefault();
+                if(Location == null)
+                {
+                    Console.WriteLine("invalid location used, using device location.");
+                    TryToGetCurrentLocation();
+                }
+            }
+            catch(FeatureNotSupportedException fnsEx)
+            {
+                Console.WriteLine("error. " + fnsEx.Message);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("error. " + ex.Message);
+            }
+        }
+
         private async void TryToGetCurrentLocation()
         {
             try
@@ -39,11 +68,12 @@ namespace RemindIQ.Droid.Resources
                 if (locationTemp != null)
                 {
                     Location = locationTemp;
+                    LocationName = null;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                Console.WriteLine("error. " + ex.Message);
             }
 
         }
@@ -62,9 +92,13 @@ namespace RemindIQ.Droid.Resources
             {
                 msg += LocationName;
             }
-            else
+            else if(Location != null)
             {
                 msg += "Latitude: " + Location.Latitude + " Longitude: " + Location.Longitude;
+            }
+            else
+            {
+                msg += "Error, no location data to return.";
             }
             return msg;
         }
