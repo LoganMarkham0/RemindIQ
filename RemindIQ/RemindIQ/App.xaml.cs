@@ -1,6 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+//using RemindIQ.Services;
+using RemindIQ.Views;
 
 namespace RemindIQ
 {
