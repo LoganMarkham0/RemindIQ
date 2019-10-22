@@ -3,6 +3,8 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 //using RemindIQ.Services;
 using RemindIQ.Views;
+using RemindIQ.Services;
+using System.IO;
 
 namespace RemindIQ
 {
@@ -12,6 +14,7 @@ namespace RemindIQ
         {
             InitializeComponent();
 
+            DependencyService.Register<DatabaseHelper>();
             MainPage = new MainPage();
         }
 

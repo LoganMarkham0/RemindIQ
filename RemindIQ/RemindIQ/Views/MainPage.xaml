@@ -8,7 +8,6 @@
             x:Class="RemindIQ.Views.MainPage"
             Title="RemindIQ">
 
-
     <TabbedPage.ToolbarItems>
         <ToolbarItem Name="Add" Order="Primary" IconImageSource="@android:drawable/Add" Clicked="Add_Clicked"/>
         <ToolbarItem Name="Settings" Order="Secondary" Clicked="Settings_Clicked"/>

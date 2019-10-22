@@ -1,8 +1,10 @@
-﻿namespace RemindIQ.Models
+﻿
+
+namespace RemindIQ.Models
 {
     public class Reminder 
         {
-            public int Id { get; set; }
+            public string Id { get; set; }
 
             public string Name { get; set; }
 
@@ -20,7 +22,7 @@
 
             public int Status { get; set; }
 
-            public Reminder() { }
+
         }
     
 }
