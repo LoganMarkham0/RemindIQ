@@ -8,11 +8,10 @@
              Title="Closed">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="RemindersListView"
-                ItemsSource="{Binding Closed}"
+            <ListView x:Name="ClosedListView"
+                ItemsSource="{Binding ClosedReminders}"
                 VerticalOptions="FillAndExpand"
                 HasUnevenRows="true"
-                RefreshCommand="{Binding LoadClosedCommand}"
                 IsPullToRefreshEnabled="true"
                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                 CachingStrategy="RecycleElement">
@@ -26,16 +25,18 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Name}" 
-                                d:Text="{Binding .}"
+                            <StackLayout Padding="15">
+                                <Label Text="{Binding Name}"
                                 LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
+                                Style="{DynamicResource Key=ListItemTextStyle}" 
                                 FontSize="16" />
-                                <Label Text="{Binding DestinationAddress}" 
-                                d:Text="Item description"
+                                <Label Text="{Binding DestinationAddress}"
                                 LineBreakMode="NoWrap"
-                                Style="{DynamicResource ListItemDetailTextStyle}"
+                                Style="{DynamicResource Key=ListItemDetailTextStyle}"
+                                FontSize="13" />
+                                <Label Text="{Binding DistanceToDestination}"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource Key=ListItemDetailTextStyle}"
                                 FontSize="13" />
                             </StackLayout>
                         </ViewCell>

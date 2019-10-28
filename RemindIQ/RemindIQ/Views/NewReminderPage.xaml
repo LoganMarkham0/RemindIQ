@@ -14,23 +14,23 @@
         <!--CONTENT-->
         <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <StackLayout Margin="15,0">
-                <Entry x:Name="Name" Placeholder="Reminder Name"/>
+                <Entry x:Name="NameField" Placeholder="Reminder Name"/>
             </StackLayout>
 
             <StackLayout>
-                <Entry x:Name="Location" Margin="15,0" Placeholder="9999 Street Road, TownCity, TN 99999" />
+                <Entry x:Name="LocationField" Margin="15,0" Placeholder="9999 Street Road, TownCity, TN 99999" />
             </StackLayout>
 
             <StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Range: " FontSize="Title" Margin="15,0,0,0"/>
-                    <Slider x:Name="RangeSlider" Maximum="100" MinimumTrackColor="#2196F3" HorizontalOptions="FillAndExpand" ValueChanged="RangeSlider_ValueChanged"/>
-                    <Label x:Name="RangeLabel"  Margin="15,0"/>
+                    <Slider x:Name="RangeSliderField" Maximum="100" MinimumTrackColor="#2196F3" HorizontalOptions="FillAndExpand" ValueChanged="RangeSlider_ValueChanged"/>
+                    <Label x:Name="RangeLabelField"  Margin="15,0"/>
                 </StackLayout>
             </StackLayout>
 
             <StackLayout Margin="15,0">
-                <Editor x:Name="Notes" Placeholder="Event Details"  AutoSize="TextChanges" Keyboard="Chat" />                
+                <Editor x:Name="NotesField" Placeholder="Event Details"  AutoSize="TextChanges" Keyboard="Chat" />                
             </StackLayout>
 
             <StackLayout>

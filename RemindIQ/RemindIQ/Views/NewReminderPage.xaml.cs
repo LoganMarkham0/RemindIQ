@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using RemindIQ.Models;
-
+using Xamarin.Essentials;
 namespace RemindIQ.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -18,14 +13,24 @@ namespace RemindIQ.Views
         public NewReminderPage()
         {
             InitializeComponent();
-
-
             BindingContext = this;
         }
 
-        private void RangeSlider_ValueChanged(object sender, ValueChangedEventArgs e)
+        async void AddReminder_Clicked(object sender, EventArgs e)
         {
-            RangeLabel.Text = String.Format("{0:##0.0} {1}", e.NewValue.ToString(), "Miles");
+            Reminder = new Reminder
+            {
+                Name = NameField.Text,
+                DestinationAddress = LocationField.Text,
+                Latitude = (await App.LocationHelper.GetRemoteLocation(LocationField.Text)).Latitude,
+                Longitude = (await App.LocationHelper.GetRemoteLocation(LocationField.Text)).Longitude,
+                Range = RangeSliderField.Value,
+                DistanceToDestination = App.LocationHelper.GetDistanceBetween(await App.LocationHelper.GetCurrentLocation(), await App.LocationHelper.GetRemoteLocation(LocationField.Text)),
+                Notes = NotesField.Text,
+                Status = 0
+            };
+            await App.DatabaseHelper.AddOrUpdateReminderAsync(Reminder);            
+            await Navigation.PopModalAsync();
         }
 
         async void Back_Clicked(object sender, EventArgs e)
@@ -33,26 +38,9 @@ namespace RemindIQ.Views
             await Navigation.PopModalAsync();
         }
 
-        async void AddReminder_Clicked(object sender, EventArgs e)
+        private void RangeSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            Reminder = new Reminder
-            {
-                Name = Name.Text,
-                DestinationAddress = Location.Text,
-                DestinationLatitude = 7,//Replace with the method to get the destination latiture
-                DestinationLongitude = 7,//Replace with the method to get the destination longitude
-                Range = RangeSlider.Value,
-                DistanceToDestination = 7,//Replace with the method to calculate distance
-                Notes = Notes.Text,
-                Status = 0
-            };
-
-
-            MessagingCenter.Send(this, "AddItem", Reminder);
-            
-            await Navigation.PopModalAsync();
+            RangeLabelField.Text = String.Format("{0:##0.0} {1}", e.NewValue.ToString(), "Miles");
         }
-
-
     }
 }

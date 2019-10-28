@@ -1,18 +1,19 @@
-﻿
+﻿using SQLite;
 
 namespace RemindIQ.Models
 {
     public class Reminder 
         {
-            public string Id { get; set; }
+            [PrimaryKey, AutoIncrement]
+            public int Id { get; set; }
 
             public string Name { get; set; }
 
             public string DestinationAddress { get; set; }
 
-            public double DestinationLatitude { get; set; }
-
-            public double DestinationLongitude { get; set; }
+            public double Latitude { get; set; }
+            
+            public double Longitude { get; set; }
 
             public double Range { get; set; }
 
@@ -21,8 +22,6 @@ namespace RemindIQ.Models
             public string Notes { get; set; }
 
             public int Status { get; set; }
-
-
         }
     
 }

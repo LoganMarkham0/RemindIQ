@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using RemindIQ.Models;
@@ -15,19 +15,16 @@ namespace RemindIQ.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MissedPage : ContentPage
     {
-        RemindersViewModel ViewModel;
+        List<Reminder> MissedReminders = new List<Reminder>();
         public MissedPage()
         {
             InitializeComponent();
-
-            BindingContext = ViewModel = new RemindersViewModel();
         }
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-
-            if (ViewModel.Missed.Count == 0)
-                ViewModel.LoadMissedCommand.Execute(null);
+            MissedReminders.Clear();
+            MissedReminders = await App.DatabaseHelper.GetMissedRemindersAsync();
         }
         /*
         private void Left_Swiped(object sender, SwipedEventArgs e)

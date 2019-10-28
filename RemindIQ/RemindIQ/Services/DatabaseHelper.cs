@@ -1,49 +1,58 @@
 ﻿using System.Collections.Generic;
 using RemindIQ.Models;
-using Xamarin.Forms;
 using System.Threading.Tasks;
-using System.Linq;
+using SQLite;
+
 
 namespace RemindIQ.Services
 {
-    class DatabaseHelper : IDatabaseHelper<Reminder>
+    public class DatabaseHelper
     {
-        readonly List<Reminder> Reminders;
-        public DatabaseHelper()
+        readonly SQLiteAsyncConnection Database;
+        
+        public DatabaseHelper(string DatabasePath)
         {
-            Reminders = new List<Reminder>();
-            //populate internal list from database
+            Database = new SQLiteAsyncConnection(DatabasePath);
+            Database.CreateTableAsync<Reminder>().Wait();
         }
 
-        public async Task<bool> AddReminderAsync(Reminder reminder)
+        public Task<int> AddOrUpdateReminderAsync(Reminder reminder)
         {
-            Reminders.Add(reminder);
-            return await Task.FromResult(true);
+            if(reminder.Id != 0)
+            {
+                return Database.UpdateAsync(reminder);
+            }
+            return Database.InsertAsync(reminder);
         }
 
-        public async Task<bool> UpdateReminderAsync(Reminder reminder)
+        public Task<int> DeleteReminderAsync(Reminder reminder)
         {
-            var oldReminder = Reminders.Where((Reminder arg) => arg.Id == reminder.Id).FirstOrDefault();
-            Reminders.Remove(oldReminder);
-            Reminders.Add(reminder);
-            return await Task.FromResult(true);
+            return Database.DeleteAsync(reminder);
         }
 
-        public async Task<bool> DeleteReminderAsync(string id)
+        public Task<Reminder> GetReminderAsync(int id)
         {
-            var oldReminder = Reminders.Where((Reminder arg) => arg.Id == id).FirstOrDefault();
-            Reminders.Remove(oldReminder);
-            return await Task.FromResult(true);
+            return Database.Table<Reminder>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
-
-        public async Task<Reminder> GetReminderAsync(string id)
+        
+        public Task<List<Reminder>> GetAllRemindersAsync()
         {
-            return await Task.FromResult(Reminders.FirstOrDefault(s => s.Id == id));
+            return Database.Table<Reminder>().ToListAsync();
         }
-
-        public async Task<IEnumerable<Reminder>> GetRemindersAsync(bool forceRefresh = false)
+        
+        public Task<List<Reminder>> GetOpenRemindersAsync()
         {
-            return await Task.FromResult(Reminders);
+            return Database.QueryAsync<Reminder>("SELECT * FROM [Reminder] WHERE [Status] = 1");
+        }
+        
+        public Task<List<Reminder>> GetMissedRemindersAsync()
+        {
+            return Database.QueryAsync<Reminder>("SELECT * FROM [Reminder] WHERE [Status] = 2");
+        }
+        
+        public Task<List<Reminder>> GetClosedRemindersAsync()
+        {
+            return Database.QueryAsync<Reminder>("SELECT * FROM [Reminder] WHERE [Status] = 3");
         }
     }
 }

@@ -2,122 +2,89 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace RemindIQ.Services
 {
-    class LocationHelper
+    public class LocationHelper
     {
         private static readonly DistanceUnits UNITS = DistanceUnits.Miles;
-
-        private Location location;
-        private string locationName;
-
-        public Location Location { get => location; set => location = value; }
-        public string LocationName { get => locationName; set => locationName = value; }
-
-        LocationHelper()
+        public LocationHelper( )
         {
-            TryToGetCurrentLocation();
-            LocationName = null;
+
         }
 
-        LocationHelper(string loc)
-        {
-            LocationName = loc;
-            TryToGetRemoteLocation(loc);
-        }
-
-        private async void GetCoordsByAddress(string address)
+        public async Task<Location> GetCoordsByAddress(string address)
         {
             try
             {
-
-                var locations = await Geocoding.GetLocationsAsync(address);
-
-                var location = locations?.FirstOrDefault();
-                if (location != null)
+                var request = await Geocoding.GetLocationsAsync(address);
+                Location temp = request?.FirstOrDefault();
+                if (temp != null)
                 {
-                    location.Longitude.ToString();
-                    location.Latitude.ToString();
+                    return temp;
                 }
+                throw new Exception("Could not resolve address.");
             }
             catch (FeatureNotSupportedException fnsEx)
             {
-                Console.WriteLine("Error: " + fnsEx.Message);
+                throw fnsEx;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                throw ex;
             }
         }
 
-        private async void TryToGetRemoteLocation(string loc)
+        public async Task<Location> GetRemoteLocation(string address)
         {
             try
             {
-                var request = await Geocoding.GetLocationsAsync(loc);
-
-                Location = request?.FirstOrDefault();
-                if (Location == null)
+                var request = await Geocoding.GetLocationsAsync(address);
+                Location temp = request?.FirstOrDefault();
+                if (temp != null)
                 {
-                    Console.WriteLine("invalid location used, using device location.");
-                    TryToGetCurrentLocation();
+                    return temp;
                 }
+                throw new Exception("Could not resolve address.");
             }
             catch (FeatureNotSupportedException fnsEx)
             {
-                Console.WriteLine("Error: " + fnsEx.Message);
+                throw fnsEx;
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                throw ex;
             }
         }
 
-        private async void TryToGetCurrentLocation()
+        public async Task<Location> GetCurrentLocation()
         {
             try
             {
-                var request = new GeolocationRequest(GeolocationAccuracy.Medium);
-                Location locationTemp = await Geolocation.GetLastKnownLocationAsync();
+                new GeolocationRequest(GeolocationAccuracy.Medium);
+                Location temp = await Geolocation.GetLastKnownLocationAsync();
 
-                if (locationTemp != null)
+                if (temp != null)
                 {
-                    Location = locationTemp;
-                    LocationName = null;
+                    return temp;
+                }
+                else
+                {
+                    throw new Exception("Could not get current location.");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                throw ex;
             }
-
         }
 
-        public static double GetDistanceBetween(Location location1, Location location2)
+        public double GetDistanceBetween(Location location1, Location location2)
         {
-
             double value = LocationExtensions.CalculateDistance(location1, location2, UNITS);
             return value;
-        }
-
-        public override string ToString()
-        {
-            string msg = "";
-            if (LocationName != null)
-            {
-                msg += LocationName;
-            }
-            else if (Location != null)
-            {
-                msg += "Latitude: " + Location.Latitude + " Longitude: " + Location.Longitude;
-            }
-            else
-            {
-                msg += "Error, no location data to return.";
-            }
-            return msg;
         }
     }
 }
