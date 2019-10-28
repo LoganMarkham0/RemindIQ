@@ -7,16 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace RemindIQ
+namespace RemindIQ.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NewReminder : ContentPage
+    public partial class ReminderDetailPage : ContentPage
     {
-        public NewReminder()
+        public ReminderDetailPage()
         {
             InitializeComponent();
         }
-
-        
     }
 }
