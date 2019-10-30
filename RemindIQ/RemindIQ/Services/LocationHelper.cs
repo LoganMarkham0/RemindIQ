@@ -15,43 +15,21 @@ namespace RemindIQ.Services
 
         }
 
-        public async Task<Location> GetCoordsByAddress(string address)
-        {
-            try
-            {
-                var request = await Geocoding.GetLocationsAsync(address);
-                Location temp = request?.FirstOrDefault();
-                if (temp != null)
-                {
-                    return temp;
-                }
-                throw new Exception("Could not resolve address.");
-            }
-            catch (FeatureNotSupportedException fnsEx)
-            {
-                throw fnsEx;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         public async Task<Location> GetRemoteLocation(string address)
         {
             try
             {
                 var request = await Geocoding.GetLocationsAsync(address);
                 Location temp = request?.FirstOrDefault();
+
                 if (temp != null)
                 {
                     return temp;
                 }
-                throw new Exception("Could not resolve address.");
-            }
-            catch (FeatureNotSupportedException fnsEx)
-            {
-                throw fnsEx;
+                else
+                {
+                    throw new Exception("Could not resolve address.");
+                }
             }
             catch (Exception ex)
             {
