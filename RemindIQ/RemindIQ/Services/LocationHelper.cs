@@ -21,6 +21,7 @@ namespace RemindIQ.Services
             {
                 var request = await Geocoding.GetLocationsAsync(address);
                 Location temp = request?.FirstOrDefault();
+              
                 if (temp != null)
                 {
                     return temp;

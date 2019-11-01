@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemindIQ.Android", "RemindIQ.Android\RemindIQ.Android.csproj", "{92267E16-2F5B-40C6-9E2E-610734E7A9D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemindIQ", "RemindIQ\RemindIQ.csproj", "{572144C0-BFDE-49F3-A41B-3FCB2514D3F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92267E16-2F5B-40C6-9E2E-610734E7A9D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92267E16-2F5B-40C6-9E2E-610734E7A9D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92267E16-2F5B-40C6-9E2E-610734E7A9D0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{92267E16-2F5B-40C6-9E2E-610734E7A9D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92267E16-2F5B-40C6-9E2E-610734E7A9D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92267E16-2F5B-40C6-9E2E-610734E7A9D0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{572144C0-BFDE-49F3-A41B-3FCB2514D3F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{572144C0-BFDE-49F3-A41B-3FCB2514D3F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{572144C0-BFDE-49F3-A41B-3FCB2514D3F9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{572144C0-BFDE-49F3-A41B-3FCB2514D3F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{572144C0-BFDE-49F3-A41B-3FCB2514D3F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{572144C0-BFDE-49F3-A41B-3FCB2514D3F9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DF37D7CA-FB02-4813-B12D-C8430F3BABC3}
+	EndGlobalSection
+EndGlobal
