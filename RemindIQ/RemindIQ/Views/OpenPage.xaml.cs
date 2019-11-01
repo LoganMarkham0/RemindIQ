@@ -8,25 +8,27 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using RemindIQ.Models;
 using RemindIQ.ViewModels;
-
+using System.Windows.Input;
 
 namespace RemindIQ.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OpenPage : ContentPage
     {
-        List<Reminder> OpenReminders = new List<Reminder>();
         public OpenPage()
         {
             InitializeComponent();
+            OpenListView.RefreshCommand = new Command(() => { OnAppearing(); OpenListView.IsRefreshing = false; });
         }
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            OpenReminders.Clear();
-            OpenReminders = await App.DatabaseHelper.GetOpenRemindersAsync();
+            var OpenReminders = await App.DatabaseHelper.GetOpenRemindersAsync();
+            if(OpenReminders != null)
+            {
+                OpenListView.ItemsSource = OpenReminders;
+            }
         }
-        /*
         private void Left_Swiped(object sender, SwipedEventArgs e)
         {
             //DELETE
@@ -39,6 +41,5 @@ namespace RemindIQ.Views
         {
             //SHOW
         }
-        */
     }
 }

@@ -21,15 +21,12 @@ namespace RemindIQ.Services
             {
                 var request = await Geocoding.GetLocationsAsync(address);
                 Location temp = request?.FirstOrDefault();
-
+              
                 if (temp != null)
                 {
                     return temp;
                 }
-                else
-                {
-                    throw new Exception("Could not resolve address.");
-                }
+                throw new Exception("Could not resolve address.");
             }
             catch (Exception ex)
             {
@@ -48,10 +45,7 @@ namespace RemindIQ.Services
                 {
                     return temp;
                 }
-                else
-                {
-                    throw new Exception("Could not get current location.");
-                }
+                throw new Exception("Could not get current location.");
             }
             catch (Exception ex)
             {

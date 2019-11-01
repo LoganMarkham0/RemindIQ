@@ -9,19 +9,15 @@
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="MissedListView"
-                ItemsSource="{Binding MissedReminders}"
                 VerticalOptions="FillAndExpand"
                 HasUnevenRows="true"
                 IsPullToRefreshEnabled="true"
-                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                 CachingStrategy="RecycleElement">
-                <!--
                 <ListView.GestureRecognizers>
                     <SwipeGestureRecognizer Direction="Left" Swiped="Left_Swiped"/>
                     <SwipeGestureRecognizer Direction="Right" Swiped="Right_Swiped"/>
                     <TapGestureRecognizer Tapped="Show_Reminder"/>
                 </ListView.GestureRecognizers>
-                -->
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

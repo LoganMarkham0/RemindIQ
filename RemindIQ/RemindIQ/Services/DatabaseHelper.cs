@@ -8,7 +8,7 @@ namespace RemindIQ.Services
 {
     public class DatabaseHelper
     {
-        readonly SQLiteAsyncConnection Database;
+        SQLiteAsyncConnection Database;
         
         public DatabaseHelper(string DatabasePath)
         {
@@ -42,17 +42,17 @@ namespace RemindIQ.Services
         
         public Task<List<Reminder>> GetOpenRemindersAsync()
         {
-            return Database.QueryAsync<Reminder>("SELECT * FROM [Reminder] WHERE [Status] = 1");
+            return App.DatabaseHelper.Database.Table<Reminder>().Where(i => i.Status.Equals(0)).ToListAsync();
         }
         
         public Task<List<Reminder>> GetMissedRemindersAsync()
         {
-            return Database.QueryAsync<Reminder>("SELECT * FROM [Reminder] WHERE [Status] = 2");
+            return App.DatabaseHelper.Database.Table<Reminder>().Where(i => i.Status.Equals(1)).ToListAsync();
         }
         
         public Task<List<Reminder>> GetClosedRemindersAsync()
         {
-            return Database.QueryAsync<Reminder>("SELECT * FROM [Reminder] WHERE [Status] = 3");
+            return App.DatabaseHelper.Database.Table<Reminder>().Where(i => i.Status.Equals(2)).ToListAsync();
         }
     }
 }

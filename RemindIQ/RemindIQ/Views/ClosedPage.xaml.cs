@@ -15,30 +15,32 @@ namespace RemindIQ.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ClosedPage : ContentPage
     {
-        List<Reminder> ClosedReminders = new List<Reminder>();
         public ClosedPage()
         {
             InitializeComponent();
+            ClosedListView.RefreshCommand = new Command(() => { OnAppearing(); ClosedListView.IsRefreshing = false; });
         }
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            ClosedReminders.Clear();
-            ClosedReminders = await App.DatabaseHelper.GetClosedRemindersAsync();
+            var ClosedReminders = await App.DatabaseHelper.GetClosedRemindersAsync();
+            if (ClosedReminders != null)
+            {
+                ClosedListView.ItemsSource = ClosedReminders;
+            }
+            ClosedListView.IsRefreshing = false;
         }
-        /*
         private void Left_Swiped(object sender, SwipedEventArgs e)
         {
             //DELETE
         }
         private void Right_Swiped(object sender, SwipedEventArgs e)
         {
-            //COMPLETE
+            //REOPEN REMINDER
         }
         private void Show_Reminder(object sender, EventArgs e)
         {
             //SHOW
         }
-        */
     }
 }

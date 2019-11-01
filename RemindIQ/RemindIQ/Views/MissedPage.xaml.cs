@@ -15,18 +15,21 @@ namespace RemindIQ.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MissedPage : ContentPage
     {
-        List<Reminder> MissedReminders = new List<Reminder>();
         public MissedPage()
         {
             InitializeComponent();
+            MissedListView.RefreshCommand = new Command(() => { OnAppearing(); MissedListView.IsRefreshing = false; });
         }
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            MissedReminders.Clear();
-            MissedReminders = await App.DatabaseHelper.GetMissedRemindersAsync();
+            var MissedReminders = await App.DatabaseHelper.GetMissedRemindersAsync();
+            if (MissedReminders != null)
+            {
+                MissedListView.ItemsSource = MissedReminders;
+            }
+            MissedListView.IsRefreshing = false;
         }
-        /*
         private void Left_Swiped(object sender, SwipedEventArgs e)
         {
             //DELETE
@@ -39,6 +42,5 @@ namespace RemindIQ.Views
         {
             //SHOW
         }
-        */
     }
 }
