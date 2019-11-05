@@ -1,38 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-            android:TabbedPage.IsSwipePagingEnabled="False"
-            mc:Ignorable="d"
-            xmlns:views="clr-namespace:RemindIQ.Views"
-            x:Class="RemindIQ.Views.MainPage"
-            Title="RemindIQ">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RemindIQ.Views.MainPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Order="Primary" Clicked="Menu_Item"/>
+        <ToolbarItem Text="Settings" Order="Secondary" Clicked="Menu_Item"/>
+        <ToolbarItem Text="About" Order="Secondary" Clicked="Menu_Item"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
 
-    <TabbedPage.ToolbarItems>
-        <ToolbarItem Name="Add" Order="Primary" IconImageSource="@android:drawable/Add" Clicked="Add_Clicked"/>
-        <ToolbarItem Name="Settings" Order="Secondary" Clicked="Settings_Clicked"/>
-        <ToolbarItem Name="About" Order="Secondary" Clicked="About_Clicked"/>
-    </TabbedPage.ToolbarItems>
-    <TabbedPage.Children>
-        <NavigationPage Title="Open">
-            <x:Arguments>
-                <views:OpenPage />
-            </x:Arguments>
-        </NavigationPage>
+        <StackLayout BackgroundColor="DodgerBlue" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Button Text="Open" TextColor="White" BackgroundColor="DodgerBlue" HorizontalOptions="FillAndExpand" Clicked="Load_Page"/>
+            <Button Text="Missed" TextColor="White" BackgroundColor="DodgerBlue" HorizontalOptions="FillAndExpand" Clicked="Load_Page"/>
+            <Button Text="Closed" TextColor="White" BackgroundColor="DodgerBlue" HorizontalOptions="FillAndExpand" Clicked="Load_Page"/>
+        </StackLayout>
+        <ListView x:Name="reminderListView" VerticalOptions="FillAndExpand" HasUnevenRows="True" IsPullToRefreshEnabled="True" ItemSelected="Show_Reminder">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Complete" Clicked="Context_Clicked"/>
+                            <MenuItem Text="Delete" Clicked="Context_Clicked"/>
+                        </ViewCell.ContextActions>
+                        <StackLayout Padding="15">
+                            <Label Text="{Binding Name}"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource Key=ListItemTextStyle}" 
+                                FontSize="16" />
+                            <Label Text="{Binding DestinationAddress}"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource Key=ListItemDetailTextStyle}"
+                                FontSize="13" />
+                            <Label Text="{Binding DistanceToDestination}"
+                                LineBreakMode="NoWrap"
+                                Style="{DynamicResource Key=ListItemDetailTextStyle}"
+                                FontSize="13" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!-- Place new controls here -->
+        <Label Text="Welcome to Xamarin.Forms!" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+    </StackLayout>
 
-        <NavigationPage Title="Missed">
-            <x:Arguments>
-                <views:MissedPage/>
-            </x:Arguments>
-        </NavigationPage>
-
-        <NavigationPage Title="Closed">
-            <x:Arguments>
-                <views:ClosedPage/>
-            </x:Arguments>
-        </NavigationPage>
-    </TabbedPage.Children>
-
-</TabbedPage>
+</ContentPage>

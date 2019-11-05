@@ -7,7 +7,7 @@
              x:Class="RemindIQ.Views.SettingsPage"
              Title="Settings">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Name="Back" IconImageSource="@android:drawable/Back" Clicked="Back_Clicked"/>
+        <ToolbarItem Name="Back" Clicked="Back_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>

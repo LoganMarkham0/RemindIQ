@@ -26,177 +26,6 @@ namespace RemindIQ.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Plugin.LocalNotification.Resource.Attribute.alpha = global::RemindIQ.Droid.Resource.Attribute.alpha;
-			global::Plugin.LocalNotification.Resource.Attribute.coordinatorLayoutStyle = global::RemindIQ.Droid.Resource.Attribute.coordinatorLayoutStyle;
-			global::Plugin.LocalNotification.Resource.Attribute.font = global::RemindIQ.Droid.Resource.Attribute.font;
-			global::Plugin.LocalNotification.Resource.Attribute.fontProviderAuthority = global::RemindIQ.Droid.Resource.Attribute.fontProviderAuthority;
-			global::Plugin.LocalNotification.Resource.Attribute.fontProviderCerts = global::RemindIQ.Droid.Resource.Attribute.fontProviderCerts;
-			global::Plugin.LocalNotification.Resource.Attribute.fontProviderFetchStrategy = global::RemindIQ.Droid.Resource.Attribute.fontProviderFetchStrategy;
-			global::Plugin.LocalNotification.Resource.Attribute.fontProviderFetchTimeout = global::RemindIQ.Droid.Resource.Attribute.fontProviderFetchTimeout;
-			global::Plugin.LocalNotification.Resource.Attribute.fontProviderPackage = global::RemindIQ.Droid.Resource.Attribute.fontProviderPackage;
-			global::Plugin.LocalNotification.Resource.Attribute.fontProviderQuery = global::RemindIQ.Droid.Resource.Attribute.fontProviderQuery;
-			global::Plugin.LocalNotification.Resource.Attribute.fontStyle = global::RemindIQ.Droid.Resource.Attribute.fontStyle;
-			global::Plugin.LocalNotification.Resource.Attribute.fontVariationSettings = global::RemindIQ.Droid.Resource.Attribute.fontVariationSettings;
-			global::Plugin.LocalNotification.Resource.Attribute.fontWeight = global::RemindIQ.Droid.Resource.Attribute.fontWeight;
-			global::Plugin.LocalNotification.Resource.Attribute.keylines = global::RemindIQ.Droid.Resource.Attribute.keylines;
-			global::Plugin.LocalNotification.Resource.Attribute.layout_anchor = global::RemindIQ.Droid.Resource.Attribute.layout_anchor;
-			global::Plugin.LocalNotification.Resource.Attribute.layout_anchorGravity = global::RemindIQ.Droid.Resource.Attribute.layout_anchorGravity;
-			global::Plugin.LocalNotification.Resource.Attribute.layout_behavior = global::RemindIQ.Droid.Resource.Attribute.layout_behavior;
-			global::Plugin.LocalNotification.Resource.Attribute.layout_dodgeInsetEdges = global::RemindIQ.Droid.Resource.Attribute.layout_dodgeInsetEdges;
-			global::Plugin.LocalNotification.Resource.Attribute.layout_insetEdge = global::RemindIQ.Droid.Resource.Attribute.layout_insetEdge;
-			global::Plugin.LocalNotification.Resource.Attribute.layout_keyline = global::RemindIQ.Droid.Resource.Attribute.layout_keyline;
-			global::Plugin.LocalNotification.Resource.Attribute.statusBarBackground = global::RemindIQ.Droid.Resource.Attribute.statusBarBackground;
-			global::Plugin.LocalNotification.Resource.Attribute.ttcIndex = global::RemindIQ.Droid.Resource.Attribute.ttcIndex;
-			global::Plugin.LocalNotification.Resource.Boolean.enable_system_alarm_service_default = global::RemindIQ.Droid.Resource.Boolean.enable_system_alarm_service_default;
-			global::Plugin.LocalNotification.Resource.Boolean.enable_system_job_service_default = global::RemindIQ.Droid.Resource.Boolean.enable_system_job_service_default;
-			global::Plugin.LocalNotification.Resource.Boolean.workmanager_test_configuration = global::RemindIQ.Droid.Resource.Boolean.workmanager_test_configuration;
-			global::Plugin.LocalNotification.Resource.Color.notification_action_color_filter = global::RemindIQ.Droid.Resource.Color.notification_action_color_filter;
-			global::Plugin.LocalNotification.Resource.Color.notification_icon_bg_color = global::RemindIQ.Droid.Resource.Color.notification_icon_bg_color;
-			global::Plugin.LocalNotification.Resource.Color.ripple_material_light = global::RemindIQ.Droid.Resource.Color.ripple_material_light;
-			global::Plugin.LocalNotification.Resource.Color.secondary_text_default_material_light = global::RemindIQ.Droid.Resource.Color.secondary_text_default_material_light;
-			global::Plugin.LocalNotification.Resource.Dimension.compat_button_inset_horizontal_material = global::RemindIQ.Droid.Resource.Dimension.compat_button_inset_horizontal_material;
-			global::Plugin.LocalNotification.Resource.Dimension.compat_button_inset_vertical_material = global::RemindIQ.Droid.Resource.Dimension.compat_button_inset_vertical_material;
-			global::Plugin.LocalNotification.Resource.Dimension.compat_button_padding_horizontal_material = global::RemindIQ.Droid.Resource.Dimension.compat_button_padding_horizontal_material;
-			global::Plugin.LocalNotification.Resource.Dimension.compat_button_padding_vertical_material = global::RemindIQ.Droid.Resource.Dimension.compat_button_padding_vertical_material;
-			global::Plugin.LocalNotification.Resource.Dimension.compat_control_corner_material = global::RemindIQ.Droid.Resource.Dimension.compat_control_corner_material;
-			global::Plugin.LocalNotification.Resource.Dimension.compat_notification_large_icon_max_height = global::RemindIQ.Droid.Resource.Dimension.compat_notification_large_icon_max_height;
-			global::Plugin.LocalNotification.Resource.Dimension.compat_notification_large_icon_max_width = global::RemindIQ.Droid.Resource.Dimension.compat_notification_large_icon_max_width;
-			global::Plugin.LocalNotification.Resource.Dimension.notification_action_icon_size = global::RemindIQ.Droid.Resource.Dimension.notification_action_icon_size;
-			global::Plugin.LocalNotification.Resource.Dimension.notification_action_text_size = global::RemindIQ.Droid.Resource.Dimension.notification_action_text_size;
-			global::Plugin.LocalNotification.Resource.Dimension.notification_big_circle_margin = global::RemindIQ.Droid.Resource.Dimension.notification_big_circle_margin;
-			global::Plugin.LocalNotification.Resource.Dimension.notification_content_margin_start = global::RemindIQ.Droid.Resource.Dimension.notification_content_margin_start;
-			global::Plugin.LocalNotification.Resource.Dimension.notification_large_icon_height = global::RemindIQ.Droid.Resource.Dimension.notification_large_icon_height;
-			global::Plugin.LocalNotification.Resource.Dimension.notification_large_icon_width = global::RemindIQ.Droid.Resource.Dimension.notification_large_icon_width;
-			global::Plugin.LocalNotification.Resource.Dimension.notification_main_column_padding_top = global::RemindIQ.Droid.Resource.Dimension.notification_main_column_padding_top;
-			global::Plugin.LocalNotification.Resource.Dimension.notification_media_narrow_margin = global::RemindIQ.Droid.Resource.Dimension.notification_media_narrow_margin;
-			global::Plugin.LocalNotification.Resource.Dimension.notification_right_icon_size = global::RemindIQ.Droid.Resource.Dimension.notification_right_icon_size;
-			global::Plugin.LocalNotification.Resource.Dimension.notification_right_side_padding_top = global::RemindIQ.Droid.Resource.Dimension.notification_right_side_padding_top;
-			global::Plugin.LocalNotification.Resource.Dimension.notification_small_icon_background_padding = global::RemindIQ.Droid.Resource.Dimension.notification_small_icon_background_padding;
-			global::Plugin.LocalNotification.Resource.Dimension.notification_small_icon_size_as_large = global::RemindIQ.Droid.Resource.Dimension.notification_small_icon_size_as_large;
-			global::Plugin.LocalNotification.Resource.Dimension.notification_subtext_size = global::RemindIQ.Droid.Resource.Dimension.notification_subtext_size;
-			global::Plugin.LocalNotification.Resource.Dimension.notification_top_pad = global::RemindIQ.Droid.Resource.Dimension.notification_top_pad;
-			global::Plugin.LocalNotification.Resource.Dimension.notification_top_pad_large_text = global::RemindIQ.Droid.Resource.Dimension.notification_top_pad_large_text;
-			global::Plugin.LocalNotification.Resource.Drawable.notification_action_background = global::RemindIQ.Droid.Resource.Drawable.notification_action_background;
-			global::Plugin.LocalNotification.Resource.Drawable.notification_bg = global::RemindIQ.Droid.Resource.Drawable.notification_bg;
-			global::Plugin.LocalNotification.Resource.Drawable.notification_bg_low = global::RemindIQ.Droid.Resource.Drawable.notification_bg_low;
-			global::Plugin.LocalNotification.Resource.Drawable.notification_bg_low_normal = global::RemindIQ.Droid.Resource.Drawable.notification_bg_low_normal;
-			global::Plugin.LocalNotification.Resource.Drawable.notification_bg_low_pressed = global::RemindIQ.Droid.Resource.Drawable.notification_bg_low_pressed;
-			global::Plugin.LocalNotification.Resource.Drawable.notification_bg_normal = global::RemindIQ.Droid.Resource.Drawable.notification_bg_normal;
-			global::Plugin.LocalNotification.Resource.Drawable.notification_bg_normal_pressed = global::RemindIQ.Droid.Resource.Drawable.notification_bg_normal_pressed;
-			global::Plugin.LocalNotification.Resource.Drawable.notification_icon_background = global::RemindIQ.Droid.Resource.Drawable.notification_icon_background;
-			global::Plugin.LocalNotification.Resource.Drawable.notification_template_icon_bg = global::RemindIQ.Droid.Resource.Drawable.notification_template_icon_bg;
-			global::Plugin.LocalNotification.Resource.Drawable.notification_template_icon_low_bg = global::RemindIQ.Droid.Resource.Drawable.notification_template_icon_low_bg;
-			global::Plugin.LocalNotification.Resource.Drawable.notification_tile_bg = global::RemindIQ.Droid.Resource.Drawable.notification_tile_bg;
-			global::Plugin.LocalNotification.Resource.Drawable.notify_panel_notification_icon_bg = global::RemindIQ.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
-			global::Plugin.LocalNotification.Resource.Id.actions = global::RemindIQ.Droid.Resource.Id.actions;
-			global::Plugin.LocalNotification.Resource.Id.action_container = global::RemindIQ.Droid.Resource.Id.action_container;
-			global::Plugin.LocalNotification.Resource.Id.action_divider = global::RemindIQ.Droid.Resource.Id.action_divider;
-			global::Plugin.LocalNotification.Resource.Id.action_image = global::RemindIQ.Droid.Resource.Id.action_image;
-			global::Plugin.LocalNotification.Resource.Id.action_text = global::RemindIQ.Droid.Resource.Id.action_text;
-			global::Plugin.LocalNotification.Resource.Id.all = global::RemindIQ.Droid.Resource.Id.all;
-			global::Plugin.LocalNotification.Resource.Id.async = global::RemindIQ.Droid.Resource.Id.async;
-			global::Plugin.LocalNotification.Resource.Id.blocking = global::RemindIQ.Droid.Resource.Id.blocking;
-			global::Plugin.LocalNotification.Resource.Id.bottom = global::RemindIQ.Droid.Resource.Id.bottom;
-			global::Plugin.LocalNotification.Resource.Id.center = global::RemindIQ.Droid.Resource.Id.center;
-			global::Plugin.LocalNotification.Resource.Id.center_horizontal = global::RemindIQ.Droid.Resource.Id.center_horizontal;
-			global::Plugin.LocalNotification.Resource.Id.center_vertical = global::RemindIQ.Droid.Resource.Id.center_vertical;
-			global::Plugin.LocalNotification.Resource.Id.chronometer = global::RemindIQ.Droid.Resource.Id.chronometer;
-			global::Plugin.LocalNotification.Resource.Id.clip_horizontal = global::RemindIQ.Droid.Resource.Id.clip_horizontal;
-			global::Plugin.LocalNotification.Resource.Id.clip_vertical = global::RemindIQ.Droid.Resource.Id.clip_vertical;
-			global::Plugin.LocalNotification.Resource.Id.end = global::RemindIQ.Droid.Resource.Id.end;
-			global::Plugin.LocalNotification.Resource.Id.fill = global::RemindIQ.Droid.Resource.Id.fill;
-			global::Plugin.LocalNotification.Resource.Id.fill_horizontal = global::RemindIQ.Droid.Resource.Id.fill_horizontal;
-			global::Plugin.LocalNotification.Resource.Id.fill_vertical = global::RemindIQ.Droid.Resource.Id.fill_vertical;
-			global::Plugin.LocalNotification.Resource.Id.forever = global::RemindIQ.Droid.Resource.Id.forever;
-			global::Plugin.LocalNotification.Resource.Id.icon = global::RemindIQ.Droid.Resource.Id.icon;
-			global::Plugin.LocalNotification.Resource.Id.icon_group = global::RemindIQ.Droid.Resource.Id.icon_group;
-			global::Plugin.LocalNotification.Resource.Id.info = global::RemindIQ.Droid.Resource.Id.info;
-			global::Plugin.LocalNotification.Resource.Id.italic = global::RemindIQ.Droid.Resource.Id.italic;
-			global::Plugin.LocalNotification.Resource.Id.left = global::RemindIQ.Droid.Resource.Id.left;
-			global::Plugin.LocalNotification.Resource.Id.line1 = global::RemindIQ.Droid.Resource.Id.line1;
-			global::Plugin.LocalNotification.Resource.Id.line3 = global::RemindIQ.Droid.Resource.Id.line3;
-			global::Plugin.LocalNotification.Resource.Id.none = global::RemindIQ.Droid.Resource.Id.none;
-			global::Plugin.LocalNotification.Resource.Id.normal = global::RemindIQ.Droid.Resource.Id.normal;
-			global::Plugin.LocalNotification.Resource.Id.notification_background = global::RemindIQ.Droid.Resource.Id.notification_background;
-			global::Plugin.LocalNotification.Resource.Id.notification_main_column = global::RemindIQ.Droid.Resource.Id.notification_main_column;
-			global::Plugin.LocalNotification.Resource.Id.notification_main_column_container = global::RemindIQ.Droid.Resource.Id.notification_main_column_container;
-			global::Plugin.LocalNotification.Resource.Id.right = global::RemindIQ.Droid.Resource.Id.right;
-			global::Plugin.LocalNotification.Resource.Id.right_icon = global::RemindIQ.Droid.Resource.Id.right_icon;
-			global::Plugin.LocalNotification.Resource.Id.right_side = global::RemindIQ.Droid.Resource.Id.right_side;
-			global::Plugin.LocalNotification.Resource.Id.start = global::RemindIQ.Droid.Resource.Id.start;
-			global::Plugin.LocalNotification.Resource.Id.tag_transition_group = global::RemindIQ.Droid.Resource.Id.tag_transition_group;
-			global::Plugin.LocalNotification.Resource.Id.tag_unhandled_key_event_manager = global::RemindIQ.Droid.Resource.Id.tag_unhandled_key_event_manager;
-			global::Plugin.LocalNotification.Resource.Id.tag_unhandled_key_listeners = global::RemindIQ.Droid.Resource.Id.tag_unhandled_key_listeners;
-			global::Plugin.LocalNotification.Resource.Id.text = global::RemindIQ.Droid.Resource.Id.text;
-			global::Plugin.LocalNotification.Resource.Id.text2 = global::RemindIQ.Droid.Resource.Id.text2;
-			global::Plugin.LocalNotification.Resource.Id.time = global::RemindIQ.Droid.Resource.Id.time;
-			global::Plugin.LocalNotification.Resource.Id.title = global::RemindIQ.Droid.Resource.Id.title;
-			global::Plugin.LocalNotification.Resource.Id.top = global::RemindIQ.Droid.Resource.Id.top;
-			global::Plugin.LocalNotification.Resource.Integer.status_bar_notification_info_maxnum = global::RemindIQ.Droid.Resource.Integer.status_bar_notification_info_maxnum;
-			global::Plugin.LocalNotification.Resource.Layout.notification_action = global::RemindIQ.Droid.Resource.Layout.notification_action;
-			global::Plugin.LocalNotification.Resource.Layout.notification_action_tombstone = global::RemindIQ.Droid.Resource.Layout.notification_action_tombstone;
-			global::Plugin.LocalNotification.Resource.Layout.notification_template_custom_big = global::RemindIQ.Droid.Resource.Layout.notification_template_custom_big;
-			global::Plugin.LocalNotification.Resource.Layout.notification_template_icon_group = global::RemindIQ.Droid.Resource.Layout.notification_template_icon_group;
-			global::Plugin.LocalNotification.Resource.Layout.notification_template_part_chronometer = global::RemindIQ.Droid.Resource.Layout.notification_template_part_chronometer;
-			global::Plugin.LocalNotification.Resource.Layout.notification_template_part_time = global::RemindIQ.Droid.Resource.Layout.notification_template_part_time;
-			global::Plugin.LocalNotification.Resource.String.status_bar_notification_info_overflow = global::RemindIQ.Droid.Resource.String.status_bar_notification_info_overflow;
-			global::Plugin.LocalNotification.Resource.Style.TextAppearance_Compat_Notification = global::RemindIQ.Droid.Resource.Style.TextAppearance_Compat_Notification;
-			global::Plugin.LocalNotification.Resource.Style.TextAppearance_Compat_Notification_Info = global::RemindIQ.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
-			global::Plugin.LocalNotification.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::RemindIQ.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2;
-			global::Plugin.LocalNotification.Resource.Style.TextAppearance_Compat_Notification_Time = global::RemindIQ.Droid.Resource.Style.TextAppearance_Compat_Notification_Time;
-			global::Plugin.LocalNotification.Resource.Style.TextAppearance_Compat_Notification_Title = global::RemindIQ.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
-			global::Plugin.LocalNotification.Resource.Style.Widget_Compat_NotificationActionContainer = global::RemindIQ.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
-			global::Plugin.LocalNotification.Resource.Style.Widget_Compat_NotificationActionText = global::RemindIQ.Droid.Resource.Style.Widget_Compat_NotificationActionText;
-			global::Plugin.LocalNotification.Resource.Style.Widget_Support_CoordinatorLayout = global::RemindIQ.Droid.Resource.Style.Widget_Support_CoordinatorLayout;
-			global::Plugin.LocalNotification.Resource.Styleable.ColorStateListItem = global::RemindIQ.Droid.Resource.Styleable.ColorStateListItem;
-			global::Plugin.LocalNotification.Resource.Styleable.ColorStateListItem_alpha = global::RemindIQ.Droid.Resource.Styleable.ColorStateListItem_alpha;
-			global::Plugin.LocalNotification.Resource.Styleable.ColorStateListItem_android_alpha = global::RemindIQ.Droid.Resource.Styleable.ColorStateListItem_android_alpha;
-			global::Plugin.LocalNotification.Resource.Styleable.ColorStateListItem_android_color = global::RemindIQ.Droid.Resource.Styleable.ColorStateListItem_android_color;
-			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout = global::RemindIQ.Droid.Resource.Styleable.CoordinatorLayout;
-			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_keylines = global::RemindIQ.Droid.Resource.Styleable.CoordinatorLayout_keylines;
-			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout = global::RemindIQ.Droid.Resource.Styleable.CoordinatorLayout_Layout;
-			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity = global::RemindIQ.Droid.Resource.Styleable.CoordinatorLayout_Layout_android_layout_gravity;
-			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor = global::RemindIQ.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_anchor;
-			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity = global::RemindIQ.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_anchorGravity;
-			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior = global::RemindIQ.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_behavior;
-			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges = global::RemindIQ.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges;
-			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge = global::RemindIQ.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_insetEdge;
-			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline = global::RemindIQ.Droid.Resource.Styleable.CoordinatorLayout_Layout_layout_keyline;
-			global::Plugin.LocalNotification.Resource.Styleable.CoordinatorLayout_statusBarBackground = global::RemindIQ.Droid.Resource.Styleable.CoordinatorLayout_statusBarBackground;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamily = global::RemindIQ.Droid.Resource.Styleable.FontFamily;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont = global::RemindIQ.Droid.Resource.Styleable.FontFamilyFont;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_android_font = global::RemindIQ.Droid.Resource.Styleable.FontFamilyFont_android_font;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_android_fontStyle = global::RemindIQ.Droid.Resource.Styleable.FontFamilyFont_android_fontStyle;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_android_fontVariationSettings = global::RemindIQ.Droid.Resource.Styleable.FontFamilyFont_android_fontVariationSettings;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_android_fontWeight = global::RemindIQ.Droid.Resource.Styleable.FontFamilyFont_android_fontWeight;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_android_ttcIndex = global::RemindIQ.Droid.Resource.Styleable.FontFamilyFont_android_ttcIndex;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_font = global::RemindIQ.Droid.Resource.Styleable.FontFamilyFont_font;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_fontStyle = global::RemindIQ.Droid.Resource.Styleable.FontFamilyFont_fontStyle;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_fontVariationSettings = global::RemindIQ.Droid.Resource.Styleable.FontFamilyFont_fontVariationSettings;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_fontWeight = global::RemindIQ.Droid.Resource.Styleable.FontFamilyFont_fontWeight;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamilyFont_ttcIndex = global::RemindIQ.Droid.Resource.Styleable.FontFamilyFont_ttcIndex;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderAuthority = global::RemindIQ.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderCerts = global::RemindIQ.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::RemindIQ.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::RemindIQ.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderPackage = global::RemindIQ.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
-			global::Plugin.LocalNotification.Resource.Styleable.FontFamily_fontProviderQuery = global::RemindIQ.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColor = global::RemindIQ.Droid.Resource.Styleable.GradientColor;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColorItem = global::RemindIQ.Droid.Resource.Styleable.GradientColorItem;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColorItem_android_color = global::RemindIQ.Droid.Resource.Styleable.GradientColorItem_android_color;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColorItem_android_offset = global::RemindIQ.Droid.Resource.Styleable.GradientColorItem_android_offset;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_centerColor = global::RemindIQ.Droid.Resource.Styleable.GradientColor_android_centerColor;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_centerX = global::RemindIQ.Droid.Resource.Styleable.GradientColor_android_centerX;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_centerY = global::RemindIQ.Droid.Resource.Styleable.GradientColor_android_centerY;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_endColor = global::RemindIQ.Droid.Resource.Styleable.GradientColor_android_endColor;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_endX = global::RemindIQ.Droid.Resource.Styleable.GradientColor_android_endX;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_endY = global::RemindIQ.Droid.Resource.Styleable.GradientColor_android_endY;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_gradientRadius = global::RemindIQ.Droid.Resource.Styleable.GradientColor_android_gradientRadius;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_startColor = global::RemindIQ.Droid.Resource.Styleable.GradientColor_android_startColor;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_startX = global::RemindIQ.Droid.Resource.Styleable.GradientColor_android_startX;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_startY = global::RemindIQ.Droid.Resource.Styleable.GradientColor_android_startY;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_tileMode = global::RemindIQ.Droid.Resource.Styleable.GradientColor_android_tileMode;
-			global::Plugin.LocalNotification.Resource.Styleable.GradientColor_android_type = global::RemindIQ.Droid.Resource.Styleable.GradientColor_android_type;
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::RemindIQ.Droid.Resource.Attribute.alpha;
 			global::Xamarin.Essentials.Resource.Attribute.coordinatorLayoutStyle = global::RemindIQ.Droid.Resource.Attribute.coordinatorLayoutStyle;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::RemindIQ.Droid.Resource.Attribute.font;
@@ -4516,16 +4345,7 @@ namespace RemindIQ.Droid
 			public const int abc_config_actionMenuItemAllCaps = 2130968578;
 			
 			// aapt resource value: 0x7F040003
-			public const int enable_system_alarm_service_default = 2130968579;
-			
-			// aapt resource value: 0x7F040004
-			public const int enable_system_job_service_default = 2130968580;
-			
-			// aapt resource value: 0x7F040005
-			public const int mtrl_btn_textappearance_all_caps = 2130968581;
-			
-			// aapt resource value: 0x7F040006
-			public const int workmanager_test_configuration = 2130968582;
+			public const int mtrl_btn_textappearance_all_caps = 2130968579;
 			
 			static Boolean()
 			{
@@ -5890,97 +5710,88 @@ namespace RemindIQ.Droid
 			public const int abc_vector_test = 2131165273;
 			
 			// aapt resource value: 0x7F07005A
-			public const int Add = 2131165274;
+			public const int avd_hide_password = 2131165274;
 			
 			// aapt resource value: 0x7F07005B
-			public const int avd_hide_password = 2131165275;
+			public const int avd_show_password = 2131165275;
 			
 			// aapt resource value: 0x7F07005C
-			public const int avd_show_password = 2131165276;
+			public const int design_bottom_navigation_item_background = 2131165276;
 			
 			// aapt resource value: 0x7F07005D
-			public const int Back = 2131165277;
+			public const int design_fab_background = 2131165277;
 			
 			// aapt resource value: 0x7F07005E
-			public const int design_bottom_navigation_item_background = 2131165278;
+			public const int design_ic_visibility = 2131165278;
 			
 			// aapt resource value: 0x7F07005F
-			public const int design_fab_background = 2131165279;
+			public const int design_ic_visibility_off = 2131165279;
 			
 			// aapt resource value: 0x7F070060
-			public const int design_ic_visibility = 2131165280;
+			public const int design_password_eye = 2131165280;
 			
 			// aapt resource value: 0x7F070061
-			public const int design_ic_visibility_off = 2131165281;
+			public const int design_snackbar_background = 2131165281;
 			
 			// aapt resource value: 0x7F070062
-			public const int design_password_eye = 2131165282;
+			public const int ic_mtrl_chip_checked_black = 2131165282;
 			
 			// aapt resource value: 0x7F070063
-			public const int design_snackbar_background = 2131165283;
+			public const int ic_mtrl_chip_checked_circle = 2131165283;
 			
 			// aapt resource value: 0x7F070064
-			public const int ic_mtrl_chip_checked_black = 2131165284;
+			public const int ic_mtrl_chip_close_circle = 2131165284;
 			
 			// aapt resource value: 0x7F070065
-			public const int ic_mtrl_chip_checked_circle = 2131165285;
+			public const int mtrl_snackbar_background = 2131165285;
 			
 			// aapt resource value: 0x7F070066
-			public const int ic_mtrl_chip_close_circle = 2131165286;
+			public const int mtrl_tabs_default_indicator = 2131165286;
 			
 			// aapt resource value: 0x7F070067
-			public const int mtrl_snackbar_background = 2131165287;
+			public const int navigation_empty_icon = 2131165287;
 			
 			// aapt resource value: 0x7F070068
-			public const int mtrl_tabs_default_indicator = 2131165288;
+			public const int notification_action_background = 2131165288;
 			
 			// aapt resource value: 0x7F070069
-			public const int navigation_empty_icon = 2131165289;
+			public const int notification_bg = 2131165289;
 			
 			// aapt resource value: 0x7F07006A
-			public const int notification_action_background = 2131165290;
+			public const int notification_bg_low = 2131165290;
 			
 			// aapt resource value: 0x7F07006B
-			public const int notification_bg = 2131165291;
+			public const int notification_bg_low_normal = 2131165291;
 			
 			// aapt resource value: 0x7F07006C
-			public const int notification_bg_low = 2131165292;
+			public const int notification_bg_low_pressed = 2131165292;
 			
 			// aapt resource value: 0x7F07006D
-			public const int notification_bg_low_normal = 2131165293;
+			public const int notification_bg_normal = 2131165293;
 			
 			// aapt resource value: 0x7F07006E
-			public const int notification_bg_low_pressed = 2131165294;
+			public const int notification_bg_normal_pressed = 2131165294;
 			
 			// aapt resource value: 0x7F07006F
-			public const int notification_bg_normal = 2131165295;
+			public const int notification_icon_background = 2131165295;
 			
 			// aapt resource value: 0x7F070070
-			public const int notification_bg_normal_pressed = 2131165296;
+			public const int notification_template_icon_bg = 2131165296;
 			
 			// aapt resource value: 0x7F070071
-			public const int notification_icon_background = 2131165297;
+			public const int notification_template_icon_low_bg = 2131165297;
 			
 			// aapt resource value: 0x7F070072
-			public const int notification_template_icon_bg = 2131165298;
+			public const int notification_tile_bg = 2131165298;
 			
 			// aapt resource value: 0x7F070073
-			public const int notification_template_icon_low_bg = 2131165299;
+			public const int notify_panel_notification_icon_bg = 2131165299;
 			
 			// aapt resource value: 0x7F070074
-			public const int notification_tile_bg = 2131165300;
+			public const int tooltip_frame_dark = 2131165300;
 			
 			// aapt resource value: 0x7F070075
-			public const int notify_panel_notification_icon_bg = 2131165301;
-			
-			// aapt resource value: 0x7F070076
-			public const int Settings = 2131165302;
-			
-			// aapt resource value: 0x7F070077
-			public const int tooltip_frame_dark = 2131165303;
-			
-			// aapt resource value: 0x7F070078
-			public const int tooltip_frame_light = 2131165304;
+			public const int tooltip_frame_light = 2131165301;
 			
 			static Drawable()
 			{

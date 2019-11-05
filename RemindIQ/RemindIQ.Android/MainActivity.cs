@@ -29,6 +29,5 @@ namespace RemindIQ.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
-
     }
 }
