@@ -10,7 +10,7 @@ namespace RemindIQ.Services
     public class LocationHelper
     {
         private static readonly DistanceUnits UNITS = DistanceUnits.Miles;
-        public LocationHelper( )
+        public LocationHelper()
         {
 
         }
@@ -21,7 +21,7 @@ namespace RemindIQ.Services
             {
                 var request = await Geocoding.GetLocationsAsync(address);
                 Location temp = request?.FirstOrDefault();
-              
+
                 if (temp != null)
                 {
                     return temp;

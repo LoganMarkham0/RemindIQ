@@ -9,20 +9,20 @@ namespace RemindIQ.Services
     public class DatabaseHelper
     {
         SQLiteAsyncConnection Database;
-        
+
         public DatabaseHelper(string DatabasePath)
         {
             Database = new SQLiteAsyncConnection(DatabasePath);
             Database.CreateTableAsync<Reminder>().Wait();
         }
 
-        public Task<int> AddOrUpdateReminderAsync(Reminder reminder)
+        public Task<int> AddReminderAsync(Reminder reminder)
         {
-            if(reminder.Id != 0)
-            {
-                return Database.UpdateAsync(reminder);
-            }
             return Database.InsertAsync(reminder);
+        }
+        public Task<int> UpdateReminderAync(Reminder reminder)
+        {
+            return Database.UpdateAsync(reminder);
         }
 
         public Task<int> DeleteReminderAsync(Reminder reminder)
@@ -34,25 +34,11 @@ namespace RemindIQ.Services
         {
             return Database.Table<Reminder>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
-        
-        public Task<List<Reminder>> GetAllRemindersAsync()
+
+        public Task<List<Reminder>> GetRemindersAsync(int x)
         {
-            return Database.Table<Reminder>().ToListAsync();
+            return App.DatabaseHelper.Database.Table<Reminder>().Where(i => i.Status.Equals(x)).ToListAsync();
         }
-        
-        public Task<List<Reminder>> GetOpenRemindersAsync()
-        {
-            return App.DatabaseHelper.Database.Table<Reminder>().Where(i => i.Status.Equals(0)).ToListAsync();
-        }
-        
-        public Task<List<Reminder>> GetMissedRemindersAsync()
-        {
-            return App.DatabaseHelper.Database.Table<Reminder>().Where(i => i.Status.Equals(1)).ToListAsync();
-        }
-        
-        public Task<List<Reminder>> GetClosedRemindersAsync()
-        {
-            return App.DatabaseHelper.Database.Table<Reminder>().Where(i => i.Status.Equals(2)).ToListAsync();
-        }
+
     }
 }
