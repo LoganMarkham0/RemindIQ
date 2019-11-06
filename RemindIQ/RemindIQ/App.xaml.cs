@@ -4,6 +4,8 @@ using Xamarin.Forms.Xaml;
 using RemindIQ.Services;
 using System.IO;
 using RemindIQ.Views;
+using Plugin.LocalNotification;
+using System.Collections.Generic;
 
 namespace RemindIQ
 {
@@ -14,9 +16,14 @@ namespace RemindIQ
         public App()
         {
             InitializeComponent();
+
+            NotificationCenter.Current.NotificationTapped += LoadPageFromNotification;
+
             MainPage = new NavigationPage(new MainPage());
+
             //MainPage = new MainPage();
         }
+
         public static DatabaseHelper DatabaseHelper
         {
             get
@@ -52,6 +59,30 @@ namespace RemindIQ
         protected override void OnResume()
         {
             // Handle when your app resumes
+        }
+
+        private void LoadPageFromNotification(NotificationTappedEventArgs e)
+        {
+            if(string.IsNullOrWhiteSpace(e.Data))
+            {
+                return;
+            }
+
+            var serializer = new ObjectSerializer<List<string>>();
+            var list = serializer.DeserializeObject(e.Data);
+            
+            if(list.Count != 2)
+            {
+                return;
+            }
+            if(list[0] != typeof(NotificationPage).FullName)
+            {
+                return;
+            }
+
+            var count = list[1];
+
+            //((NavigationPage)MainPage).Navigation.PushAsync(new NotificationPage(int.Parse(count)));
         }
     }
 }

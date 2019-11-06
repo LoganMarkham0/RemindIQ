@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using RemindIQ.Models;
-using RemindIQ.Views;
+using Plugin.LocalNotification;
 
 namespace RemindIQ.Views
 {
@@ -16,9 +13,15 @@ namespace RemindIQ.Views
     public partial class MainPage : ContentPage
     {
         int currentPage;
+
+        private int _count;
+
         public MainPage()
         {
             InitializeComponent();
+
+            //NotifyDatePicker.MinimumDate = DateTime.Today;
+            //NotifyTimePicker.Time = DateTime.Now.TimeOfDay.Add(TimeSpan.FromSeconds(10));
         }
         protected override async void OnAppearing()
         {
@@ -92,6 +95,60 @@ namespace RemindIQ.Views
         {
             Reminder reminder = (Reminder)e.SelectedItem;
             await Navigation.PushModalAsync(new NavigationPage(new ReminderPage(reminder)));
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            _count++;
+
+            var list = new List<string>
+            {
+                typeof(NotificationPage).FullName,
+                _count.ToString()
+            };
+
+            var serializer = new ObjectSerializer<List<string>>();
+            var serializeReturningData = serializer.SerializeObject(list);
+
+            var request = new NotificationRequest
+            {
+                NotificationId = 100,
+                Title = "Test",
+                Description = $"Tap Count: {_count}",
+                BadgeNumber = _count,
+                ReturningData = serializeReturningData,
+                Android =
+                {
+                    //IconName = "my_icon",
+                    //AutoCancel = false,
+                    //Ongoing = true
+                },
+            };
+
+            // if not specified, default sound will be played.
+            /*
+            if (CustomSoundSwitch.IsToggled)
+            {
+                request.Sound = Device.RuntimePlatform == Device.Android
+                    ? "good_things_happen"
+                    : "good_things_happen.aiff";
+            }
+            */
+
+            // if not specified, notification will show immediately.
+            /*
+            if (UseNotifyTimeSwitch.IsToggled)
+            {
+                var notifyDateTime = NotifyDatePicker.Date.Add(NotifyTimePicker.Time);
+                if (notifyDateTime <= DateTime.Now)
+                {
+                    notifyDateTime = DateTime.Now.AddSeconds(10);
+                }
+                request.NotifyTime = notifyDateTime;
+            }
+            */
+
+            NotificationCenter.Current.Show(request);
         }
     }
 }

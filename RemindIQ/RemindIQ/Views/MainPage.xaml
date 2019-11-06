@@ -11,7 +11,6 @@
         <ToolbarItem Text="About" Order="Secondary" Clicked="Menu_Item"/>
     </ContentPage.ToolbarItems>
     <StackLayout>
-
         <StackLayout BackgroundColor="DodgerBlue" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
             <Button Text="Open" TextColor="White" BackgroundColor="DodgerBlue" HorizontalOptions="FillAndExpand" Clicked="Load_Page"/>
             <Button Text="Missed" TextColor="White" BackgroundColor="DodgerBlue" HorizontalOptions="FillAndExpand" Clicked="Load_Page"/>
@@ -47,6 +46,11 @@
         <Label Text="Welcome to Xamarin.Forms!" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
+        <Button
+            Clicked="Button_Clicked"
+            HorizontalOptions="Center"
+            Text="Send Local Notification"
+            VerticalOptions="CenterAndExpand" />
     </StackLayout>
 
 </ContentPage>
