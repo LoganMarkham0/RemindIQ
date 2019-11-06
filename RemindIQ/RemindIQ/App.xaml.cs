@@ -10,8 +10,8 @@ namespace RemindIQ
 {
     public partial class App : Application
     {
-        static DatabaseHelper databaseHelper;
-        static LocationHelper locationHelper;
+        public static DatabaseHelper databaseHelper;
+        public static LocationHelper locationHelper;
         public App()
         {
             InitializeComponent();

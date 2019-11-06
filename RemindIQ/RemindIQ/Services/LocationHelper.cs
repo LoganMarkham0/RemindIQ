@@ -4,15 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
+using RemindIQ.Models;
+using System.Threading;
 
 namespace RemindIQ.Services
 {
     public class LocationHelper
     {
+        private static readonly int time = 60000;
         private static readonly DistanceUnits UNITS = DistanceUnits.Miles;
+        //Thread thread;
+        private static List<Reminder> fromDatabase;
+
         public LocationHelper( )
         {
-
+           // thread = new Thread((UpdateDistance));
+            //thread.Start();
         }
 
         public async Task<Location> GetRemoteLocation(string address)
@@ -64,5 +71,22 @@ namespace RemindIQ.Services
             double value = LocationExtensions.CalculateDistance(location1, location2, UNITS);
             return value;
         }
+
+        /*
+        public async void UpdateDistance()
+        {
+            Thread.Sleep(time);
+            Location location1 = await GetCurrentLocation();
+            Location location2 = new Location();
+            double distance = 0;
+            fromDatabase = await App.DatabaseHelper.GetAllRemindersAsync();
+            foreach (Reminder rem in fromDatabase)
+            {
+                location2.Latitude = rem.Latitude;
+                location2.Longitude = rem.Longitude;
+                distance = GetDistanceBetween(location1, location2);
+                await App.DatabaseHelper.AddOrUpdateReminderAsync(rem);
+            }
+        }*/
     }
 }
