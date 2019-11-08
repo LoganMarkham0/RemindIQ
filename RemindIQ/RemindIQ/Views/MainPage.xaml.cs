@@ -20,6 +20,7 @@ namespace RemindIQ.Views
         {
             InitializeComponent();
 
+            //not sure what these did in the sample code
             //NotifyDatePicker.MinimumDate = DateTime.Today;
             //NotifyTimePicker.Time = DateTime.Now.TimeOfDay.Add(TimeSpan.FromSeconds(10));
         }
@@ -97,9 +98,11 @@ namespace RemindIQ.Views
             await Navigation.PushModalAsync(new NavigationPage(new ReminderPage(reminder)));
         }
 
+        //the sample used a single button to generate the notification, so obviously this needs to go somewhere else
         private void Button_Clicked(object sender, EventArgs e)
         {
-            _count++;
+            
+            _count++;//the sample kept track of how many times the button was pressed, so this could probably be removed no problem
 
             var list = new List<string>
             {
@@ -110,18 +113,18 @@ namespace RemindIQ.Views
             var serializer = new ObjectSerializer<List<string>>();
             var serializeReturningData = serializer.SerializeObject(list);
 
-            var request = new NotificationRequest
+            var request = new NotificationRequest//the notification object that will be shown to the user in the end
             {
-                NotificationId = 100,
-                Title = "Test",
-                Description = $"Tap Count: {_count}",
-                BadgeNumber = _count,
+                NotificationId = 100,//think this has to match the channel id
+                Title = "Test",//reminder name should go here
+                Description = $"Tap Count: {_count}",//reminder descriptions should go here
+                BadgeNumber = _count, //not sure about this one
                 ReturningData = serializeReturningData,
                 Android =
                 {
                     //IconName = "my_icon",
                     //AutoCancel = false,
-                    //Ongoing = true
+                    //Ongoing = true//not really sure what this boolean does
                 },
             };
 
@@ -148,7 +151,7 @@ namespace RemindIQ.Views
             }
             */
 
-            NotificationCenter.Current.Show(request);
+            NotificationCenter.Current.Show(request);//sends object to the notification center, which is in the Android/iOS code
         }
     }
 }

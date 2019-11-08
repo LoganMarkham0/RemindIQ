@@ -13,11 +13,13 @@ namespace RemindIQ
     {
         static DatabaseHelper databaseHelper;
         static LocationHelper locationHelper;
+        //static NotificationHelper notificationHelper;
+
         public App()
         {
             InitializeComponent();
 
-            NotificationCenter.Current.NotificationTapped += LoadPageFromNotification;
+            NotificationCenter.Current.NotificationTapped += LoadPageFromNotification;//part of the notification sample
 
             MainPage = new NavigationPage(new MainPage());
 
@@ -61,6 +63,7 @@ namespace RemindIQ
             // Handle when your app resumes
         }
 
+        //also part of the notification sample, allows the user to go straight to the notification page through clicking the notification
         private void LoadPageFromNotification(NotificationTappedEventArgs e)
         {
             if(string.IsNullOrWhiteSpace(e.Data))
@@ -82,6 +85,7 @@ namespace RemindIQ
 
             var count = list[1];
 
+            //this part is broken for some reason
             //((NavigationPage)MainPage).Navigation.PushAsync(new NotificationPage(int.Parse(count)));
         }
     }

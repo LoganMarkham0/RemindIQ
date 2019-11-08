@@ -33,6 +33,7 @@ namespace RemindIQ.Droid
             NotificationCenter.NotifyNotificationTapped(Intent);
         }
 
+        //part of the notification plugin
         protected override void OnNewIntent(Intent intent)
         {
             NotificationCenter.NotifyNotificationTapped(intent);
