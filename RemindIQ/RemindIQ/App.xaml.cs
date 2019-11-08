@@ -1,10 +1,9 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using RemindIQ.Views;
 using RemindIQ.Services;
 using System.IO;
-using Xamarin.Essentials;
+using RemindIQ.Views;
 
 namespace RemindIQ
 {
@@ -15,9 +14,9 @@ namespace RemindIQ
         public App()
         {
             InitializeComponent();
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
+            //MainPage = new MainPage();
         }
-
         public static DatabaseHelper DatabaseHelper
         {
             get
@@ -40,7 +39,6 @@ namespace RemindIQ
                 return locationHelper;
             }
         }
-
         protected override void OnStart()
         {
             // Handle when your app starts
