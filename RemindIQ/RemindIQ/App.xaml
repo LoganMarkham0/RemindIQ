@@ -5,18 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="RemindIQ.App">
-
     <Application.Resources>
-        <ResourceDictionary>
-            <!--Global Styles
-            <Color x:Key="NavigationPrimary">#5e35b1</Color>
-            <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="BarTextColor" Value="White" />
-                <Setter Property="android:TabbedPage.ToolbarPlacement" Value="Bottom" />
-                <Setter Property="android:TabbedPage.BarItemColor" Value="#bdbdbd" />
-            </Style>-->
-        </ResourceDictionary>
-    </Application.Resources>
 
+    </Application.Resources>
 </Application>

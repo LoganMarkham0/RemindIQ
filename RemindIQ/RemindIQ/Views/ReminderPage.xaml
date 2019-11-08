@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RemindIQ.Views.ReminderPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Back" Clicked="Back_Clicked"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout Margin="15,0">
+                <Entry x:Name="NameField" Placeholder="Reminder Name"/>
+            </StackLayout>
+
+            <StackLayout>
+                <Entry x:Name="LocationField" Margin="15,0" Placeholder="9999 Street Road, TownCity, TN 99999" />
+            </StackLayout>
+
+            <StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Range: " FontSize="Title" Margin="15,0,0,0"/>
+                    <Slider x:Name="RangeSliderField" Maximum="100" MinimumTrackColor="#2196F3" HorizontalOptions="FillAndExpand" ValueChanged="RangeSlider_ValueChanged"/>
+                    <Label x:Name="RangeLabelField"  Margin="15,0"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Margin="15,0">
+                <Editor x:Name="NotesField" Placeholder="Event Details"  AutoSize="TextChanges" Keyboard="Chat" />
+            </StackLayout>
+
+            <StackLayout>
+                <Button x:Name="AddReminder" Text="Add Reminder" Clicked="AddReminder_Clicked" Margin="15,0"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
