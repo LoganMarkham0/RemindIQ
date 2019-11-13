@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="RemindIQ.Views.MainPage">
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Refresh" Order="Primary" Clicked="Refresh_Button"/>
         <ToolbarItem Text="Add" Order="Primary" Clicked="Menu_Item"/>
         <ToolbarItem Text="Settings" Order="Secondary" Clicked="Menu_Item"/>
         <ToolbarItem Text="About" Order="Secondary" Clicked="Menu_Item"/>
@@ -16,7 +17,7 @@
             <Button Text="Missed" TextColor="White" BackgroundColor="DodgerBlue" HorizontalOptions="FillAndExpand" Clicked="Load_Page"/>
             <Button Text="Closed" TextColor="White" BackgroundColor="DodgerBlue" HorizontalOptions="FillAndExpand" Clicked="Load_Page"/>
         </StackLayout>
-        <ListView x:Name="reminderListView" VerticalOptions="FillAndExpand" HasUnevenRows="True" IsPullToRefreshEnabled="True" ItemSelected="Show_Reminder">
+        <ListView x:Name="reminderListView" VerticalOptions="FillAndExpand" HasUnevenRows="True" ItemSelected="Show_Reminder">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
