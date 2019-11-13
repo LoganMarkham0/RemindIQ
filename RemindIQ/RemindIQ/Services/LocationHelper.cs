@@ -81,6 +81,7 @@ namespace RemindIQ.Services
                 if(distance < rem.Range)
                 {
                     //trigger notification
+                    NotificationHelper.pushNotification(rem);
                 }
                 await App.DatabaseHelper.UpdateReminderAync(rem);
             }

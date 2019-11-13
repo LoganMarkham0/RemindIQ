@@ -6,6 +6,7 @@ using System.IO;
 using RemindIQ.Views;
 using Plugin.LocalNotification;
 using System.Collections.Generic;
+using RemindIQ.Models;
 
 namespace RemindIQ
 {
@@ -13,7 +14,7 @@ namespace RemindIQ
     {
         static DatabaseHelper databaseHelper;
         static LocationHelper locationHelper;
-        //static NotificationHelper notificationHelper;
+        static NotificationHelper notificationHelper;
 
         public App()
         {
@@ -83,10 +84,10 @@ namespace RemindIQ
                 return;
             }
 
-            var count = list[1];
+            string rem = list[1];
 
             //this part is broken for some reason
-            //((NavigationPage)MainPage).Navigation.PushAsync(new NotificationPage(int.Parse(count)));
+            //((NavigationPage)MainPage).Navigation.PushAsync(new NotificationPage(rem));
         }
     }
 }
