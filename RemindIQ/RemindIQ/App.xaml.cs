@@ -4,6 +4,8 @@ using Xamarin.Forms.Xaml;
 using RemindIQ.Services;
 using System.IO;
 using RemindIQ.Views;
+using Plugin.LocalNotification;
+using System.Collections.Generic;
 
 namespace RemindIQ
 {
