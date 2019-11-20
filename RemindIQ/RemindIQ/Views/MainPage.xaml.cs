@@ -40,6 +40,11 @@ namespace RemindIQ.Views
         {
             reminderListView.ItemsSource = await App.DatabaseHelper.GetRemindersAsync(currentPage);
         }
+
+        private async void Refresh_Button(object sender, EventArgs e)
+        {
+            reminderListView.ItemsSource = await App.DatabaseHelper.GetRemindersAsync(currentPage);
+        }
         private void Load_Page(object sender, EventArgs e)
         {
             var button = (Button)sender;
