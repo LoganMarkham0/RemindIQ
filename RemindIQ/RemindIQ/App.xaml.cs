@@ -7,6 +7,9 @@ using RemindIQ.Views;
 using Plugin.LocalNotification;
 using System.Collections.Generic;
 using RemindIQ.Models;
+using System.ComponentModel;
+using System.Threading;
+using Xamarin.Essentials;
 
 namespace RemindIQ
 {
@@ -14,7 +17,8 @@ namespace RemindIQ
     {
         static DatabaseHelper databaseHelper;
         static LocationHelper locationHelper;
-        static NotificationHelper notificationHelper;
+        //static NotificationHelper notificationHelper;
+        
 
         public App()
         {
@@ -24,6 +28,16 @@ namespace RemindIQ
 
             MainPage = new NavigationPage(new MainPage());
 
+            if (locationHelper == null)
+            {
+                locationHelper = new LocationHelper();
+            }
+            /*
+            if (notificationHelper == null)
+            {
+                notificationHelper = new NotificationHelper();
+            }
+            */
             //MainPage = new MainPage();
         }
 
@@ -79,7 +93,7 @@ namespace RemindIQ
             {
                 return;
             }
-            if(list[0] != typeof(NotificationPage).FullName)
+            if(list[0] != typeof(MainPage).FullName)
             {
                 return;
             }
@@ -89,5 +103,12 @@ namespace RemindIQ
             //this part is broken for some reason
             //((NavigationPage)MainPage).Navigation.PushAsync(new NotificationPage(rem));
         }
+        /*
+        public static AsyncOperation CheckForNotifications()
+        {
+            locationHelper.UpdateDistance();
+            return null;
+        }
+        */
     }
 }

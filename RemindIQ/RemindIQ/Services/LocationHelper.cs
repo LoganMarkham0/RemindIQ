@@ -12,13 +12,15 @@ namespace RemindIQ.Services
     public class LocationHelper
     {
         private static readonly DistanceUnits UNITS = DistanceUnits.Miles;
+        /*
         Thread Thread;
         int time = 10000;
         int status;
         List<Reminder> fromDatabase;
+        */
         public LocationHelper()
         {
-            Thread = new Thread(UpdateDistance);
+            //Thread = new Thread(UpdateDistance);
         }
 
         public async Task<Location> GetRemoteLocation(string address)
@@ -59,15 +61,40 @@ namespace RemindIQ.Services
             }
         }
 
+        public static async Task<Location> CurrentLocation()
+        {
+            try
+            {
+                new GeolocationRequest(GeolocationAccuracy.Medium);
+                Location temp = await Geolocation.GetLastKnownLocationAsync();
+
+                if (temp != null)
+                {
+                    return temp;
+                }
+                throw new Exception("Could not get current location.");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public double GetDistanceBetween(Location location1, Location location2)
         {
             double value = LocationExtensions.CalculateDistance(location1, location2, UNITS);
             return value;
         }
-        
+        public static double DistanceBetween(Location location1, Location location2)
+        {
+            double value = LocationExtensions.CalculateDistance(location1, location2, UNITS);
+            return value;
+        }
+        /*
         public async void UpdateDistance()
         {
             Thread.Sleep(time);
+            
+   
             Location location1 = await GetCurrentLocation();
             Location location2 = new Location();
             double distance = 0;
@@ -83,8 +110,10 @@ namespace RemindIQ.Services
                     //trigger notification
                     NotificationHelper.pushNotification(rem);
                 }
-                await App.DatabaseHelper.UpdateReminderAync(rem);
+                await App.DatabaseHelper.UpdateReminderAsync(rem);
             }
+            
         }
+        */
     }
 }

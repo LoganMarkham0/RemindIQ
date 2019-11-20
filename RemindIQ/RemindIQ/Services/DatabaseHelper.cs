@@ -20,7 +20,7 @@ namespace RemindIQ.Services
         {
             return Database.InsertAsync(reminder);
         }
-        public Task<int> UpdateReminderAync(Reminder reminder)
+        public Task<int> UpdateReminderAsync(Reminder reminder)
         {
             return Database.UpdateAsync(reminder);
         }

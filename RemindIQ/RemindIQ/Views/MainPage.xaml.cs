@@ -4,6 +4,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using RemindIQ.Models;
 using Plugin.LocalNotification;
+using RemindIQ.Services;
 
 namespace RemindIQ.Views
 {
@@ -14,11 +15,16 @@ namespace RemindIQ.Views
     {
         int currentPage;
 
-        private int _count;
+        static NotificationHelper notificationHelper;
 
         public MainPage()
         {
             InitializeComponent();
+
+            if (notificationHelper == null)
+            {
+                notificationHelper = new NotificationHelper();
+            }
 
             //not sure what these did in the sample code
             //NotifyDatePicker.MinimumDate = DateTime.Today;
@@ -38,8 +44,10 @@ namespace RemindIQ.Views
 
         private async void Refresh_Button(object sender, EventArgs e)
         {
+            notificationHelper.UpdateDistanceManual();
             reminderListView.ItemsSource = await App.DatabaseHelper.GetRemindersAsync(currentPage);
         }
+        
         private void Load_Page(object sender, EventArgs e)
         {
             var button = (Button)sender;
@@ -86,7 +94,7 @@ namespace RemindIQ.Views
             if (menuItem.Text == "Complete")
             {
                 reminder.Status = 2;
-                await App.DatabaseHelper.UpdateReminderAync(reminder);
+                await App.DatabaseHelper.UpdateReminderAsync(reminder);
 
             }
             if (menuItem.Text == "Delete")
