@@ -15,6 +15,14 @@ namespace RemindIQ.Services
 
         }
 
+        public Models.Reminder Reminder
+        {
+            get => default(Models.Reminder);
+            set
+            {
+            }
+        }
+
         public async Task<Location> GetRemoteLocation(string address)
         {
             try

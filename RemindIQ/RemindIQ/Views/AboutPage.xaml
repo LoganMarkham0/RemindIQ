@@ -12,9 +12,52 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="About RemindIQ"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"
-                />
+                   TextColor="Black"
+                   FontSize="Large"
+                   FontFamily="Verdana"
+                   FontAttributes="Bold"
+                   XAlign="Center" />
+            <BoxView HorizontalOptions="FillAndExpand"
+                     HeightRequest="4"
+                     Color="Black" />
+            <Label Text="Summary"
+                   TextColor="Black"
+                   FontSize="Large"
+                   FontAttributes="Italic" />
+            <Label Text="RemindIQ allows users to conveniently set location-based reminders. Simply configure a push notification to alert you when you are within a specified distance (miles) from your location."
+                   TextColor="Black"
+                   FontSize="Medium"
+                   XAlign="Start" />
+            <BoxView HorizontalOptions="FillAndExpand"
+                     HeightRequest="4"
+                     Color="Black" />
+            <Label Text="App Features"
+                   TextColor="Black"
+                   FontSize="Large"
+                   FontAttributes="Italic" />
+            <Label Text="Open - Page containing open reminders (not yet triggered)"
+                   TextColor="Black"
+                   FontSize="Medium" />
+            <Label Text="Missed - Page containing missed reminders (triggered but not completed)"
+                   TextColor="Black"
+                   FontSize="Medium" />
+            <Label Text="Closed - Page containing closed reminders (triggered and completed)"
+                   TextColor="Black"
+                   FontSize="Medium" />
+            <BoxView HorizontalOptions="FillAndExpand"
+                     HeightRequest="4"
+                     Color="Black" />
+            <Label Text="Contact"
+                   TextColor="Black"
+                   FontSize="Large"
+                   FontAttributes="Italic" />
+            <Label Text="Questions or concerns? Email our support line: doesnotexist@gmail.com"
+                   TextColor="Black"
+                   FontSize="Medium"
+                   XAlign="Start" />
+            <BoxView HorizontalOptions="FillAndExpand"
+                     HeightRequest="4"
+                     Color="Black" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

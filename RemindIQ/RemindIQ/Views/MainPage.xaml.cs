@@ -20,6 +20,15 @@ namespace RemindIQ.Views
         {
             InitializeComponent();
         }
+
+        public Reminder Reminder
+        {
+            get => default(Reminder);
+            set
+            {
+            }
+        }
+
         protected override async void OnAppearing()
         {
             base.OnAppearing();
