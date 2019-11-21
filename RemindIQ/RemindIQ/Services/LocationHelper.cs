@@ -70,6 +70,7 @@ namespace RemindIQ.Services
         public double GetDistanceBetween(Location location1, Location location2)
         {
             double value = LocationExtensions.CalculateDistance(location1, location2, UNITS);
+            value = Math.Round(value, 2);
             return value;
         }
         
