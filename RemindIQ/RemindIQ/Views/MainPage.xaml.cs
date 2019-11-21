@@ -75,10 +75,6 @@ namespace RemindIQ.Views
             {
                 await Navigation.PushModalAsync(new NavigationPage(new ReminderPage()));
             }
-            if (toolbarItem.Text == "Settings")
-            {
-                await Navigation.PushModalAsync(new NavigationPage(new SettingsPage()));
-            }
             if (toolbarItem.Text == "About")
             {
                 await Navigation.PushModalAsync(new NavigationPage(new AboutPage()));
