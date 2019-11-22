@@ -36,6 +36,14 @@ namespace RemindIQ.Views
             NotesField.Text = reminder.Notes;
         }
 
+        public Reminder Reminder
+        {
+            get => default(Reminder);
+            set
+            {
+            }
+        }
+
         async void AddReminder_Clicked(object sender, EventArgs e)
         {
             reminder.Name = NameField.Text;

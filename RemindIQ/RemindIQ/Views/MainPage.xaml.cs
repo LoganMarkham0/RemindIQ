@@ -20,6 +20,15 @@ namespace RemindIQ.Views
         {
             InitializeComponent();
         }
+
+        public Reminder Reminder
+        {
+            get => default(Reminder);
+            set
+            {
+            }
+        }
+
         protected override async void OnAppearing()
         {
             base.OnAppearing();
@@ -28,6 +37,11 @@ namespace RemindIQ.Views
             reminderListView.ItemsSource = await App.DatabaseHelper.GetRemindersAsync(currentPage);
         }
         private async void Refresh()
+        {
+            reminderListView.ItemsSource = await App.DatabaseHelper.GetRemindersAsync(currentPage);
+        }
+
+        private async void Refresh_Button(object sender, EventArgs e)
         {
             reminderListView.ItemsSource = await App.DatabaseHelper.GetRemindersAsync(currentPage);
         }
@@ -60,10 +74,6 @@ namespace RemindIQ.Views
             if (toolbarItem.Text == "Add")
             {
                 await Navigation.PushModalAsync(new NavigationPage(new ReminderPage()));
-            }
-            if (toolbarItem.Text == "Settings")
-            {
-                await Navigation.PushModalAsync(new NavigationPage(new SettingsPage()));
             }
             if (toolbarItem.Text == "About")
             {

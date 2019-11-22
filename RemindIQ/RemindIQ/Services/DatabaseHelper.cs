@@ -16,6 +16,14 @@ namespace RemindIQ.Services
             Database.CreateTableAsync<Reminder>().Wait();
         }
 
+        public Reminder Reminder
+        {
+            get => default(Reminder);
+            set
+            {
+            }
+        }
+
         public Task<int> AddReminderAsync(Reminder reminder)
         {
             return Database.InsertAsync(reminder);
@@ -35,8 +43,13 @@ namespace RemindIQ.Services
             return Database.Table<Reminder>().Where(i => i.Id == id).FirstOrDefaultAsync();
         }
 
+        
         public Task<List<Reminder>> GetRemindersAsync(int x)
         {
+            if(x == 4)
+            {
+                return App.DatabaseHelper.Database.Table<Reminder>().ToListAsync();
+            }
             return App.DatabaseHelper.Database.Table<Reminder>().Where(i => i.Status.Equals(x)).ToListAsync();
         }
 
