@@ -30,6 +30,15 @@ namespace RemindIQ.Views
             //NotifyDatePicker.MinimumDate = DateTime.Today;
             //NotifyTimePicker.Time = DateTime.Now.TimeOfDay.Add(TimeSpan.FromSeconds(10));
         }
+
+        public Reminder Reminder
+        {
+            get => default(Reminder);
+            set
+            {
+            }
+        }
+
         protected override async void OnAppearing()
         {
             base.OnAppearing();
@@ -77,10 +86,6 @@ namespace RemindIQ.Views
             if (toolbarItem.Text == "Add")
             {
                 await Navigation.PushModalAsync(new NavigationPage(new ReminderPage()));
-            }
-            if (toolbarItem.Text == "Settings")
-            {
-                await Navigation.PushModalAsync(new NavigationPage(new SettingsPage()));
             }
             if (toolbarItem.Text == "About")
             {

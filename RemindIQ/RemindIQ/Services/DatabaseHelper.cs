@@ -16,6 +16,14 @@ namespace RemindIQ.Services
             Database.CreateTableAsync<Reminder>().Wait();
         }
 
+        public Reminder Reminder
+        {
+            get => default(Reminder);
+            set
+            {
+            }
+        }
+
         public Task<int> AddReminderAsync(Reminder reminder)
         {
             return Database.InsertAsync(reminder);

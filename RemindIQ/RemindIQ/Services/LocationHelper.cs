@@ -23,6 +23,14 @@ namespace RemindIQ.Services
             Thread = new Thread(UpdateDistance);
         }
 
+        public Models.Reminder Reminder
+        {
+            get => default(Models.Reminder);
+            set
+            {
+            }
+        }
+
         public async Task<Location> GetRemoteLocation(string address)
         {
             try
@@ -82,6 +90,7 @@ namespace RemindIQ.Services
         public double GetDistanceBetween(Location location1, Location location2)
         {
             double value = LocationExtensions.CalculateDistance(location1, location2, UNITS);
+            value = Math.Round(value, 2);
             return value;
         }
         public static double DistanceBetween(Location location1, Location location2)
