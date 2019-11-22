@@ -12,15 +12,15 @@ namespace RemindIQ.Services
     public class LocationHelper
     {
         private static readonly DistanceUnits UNITS = DistanceUnits.Miles;
-        /*
+        
         Thread Thread;
         int time = 10000;
         int status;
         List<Reminder> fromDatabase;
-        */
+        
         public LocationHelper()
         {
-            //Thread = new Thread(UpdateDistance);
+            Thread = new Thread(UpdateDistance);
         }
 
         public async Task<Location> GetRemoteLocation(string address)
@@ -89,7 +89,7 @@ namespace RemindIQ.Services
             double value = LocationExtensions.CalculateDistance(location1, location2, UNITS);
             return value;
         }
-        /*
+        
         public async void UpdateDistance()
         {
             Thread.Sleep(time);
@@ -114,6 +114,6 @@ namespace RemindIQ.Services
             }
             
         }
-        */
+        
     }
 }

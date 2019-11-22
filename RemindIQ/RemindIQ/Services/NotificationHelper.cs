@@ -13,21 +13,17 @@ namespace RemindIQ.Services
 {
     class NotificationHelper
     {
-        Thread Thread;
-        int time = 10000;
-        int status;
         List<Reminder> fromDatabase;
 
         public NotificationHelper()
         {
-            Thread = new Thread(UpdateDistance);
+            
         }
         public static void pushNotification(Reminder sender)
         {
             var list = new List<string>
             {
                 typeof(MainPage).FullName,
-                //_count.ToString()
             };
 
             var serializer = new ObjectSerializer<List<string>>();
@@ -35,10 +31,10 @@ namespace RemindIQ.Services
 
             var request = new NotificationRequest//the notification object that will be shown to the user in the end
             {
-                NotificationId = 100,//think this has to match the channel id
+                NotificationId = 100,
                 Title = $"{sender.Name} is within the specified range.",//reminder name should go here
-                Description = sender.Notes,//,//reminder descriptions should go here
-                BadgeNumber = 0,//_count, //not sure about this one
+                Description = sender.Notes,//reminder descriptions should go here
+                BadgeNumber = 0,
                 ReturningData = serializeReturningData,
                 Android =
                 {
@@ -73,12 +69,7 @@ namespace RemindIQ.Services
 
             NotificationCenter.Current.Show(request);//sends object to the notification center, which is in the Android/iOS code
         }
-        public void UpdateDistance()
-        {
-            Thread.Sleep(time);
-
-            UpdateDistanceManual();
-        }
+        
         public async void UpdateDistanceManual()
         {
             Location location1 = await LocationHelper.CurrentLocation();
@@ -93,7 +84,6 @@ namespace RemindIQ.Services
                 rem.DistanceToDestination = distance;
                 if (distance < rem.Range)
                 {
-                    //trigger notification
                     pushNotification(rem);
                 }
                 await App.DatabaseHelper.UpdateReminderAsync(rem);
