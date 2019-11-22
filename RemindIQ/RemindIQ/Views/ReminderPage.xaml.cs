@@ -60,7 +60,7 @@ namespace RemindIQ.Views
             }
             else
             {
-                await App.DatabaseHelper.UpdateReminderAync(reminder);
+                await App.DatabaseHelper.UpdateReminderAsync(reminder);
             }
             await Navigation.PopModalAsync();
         }

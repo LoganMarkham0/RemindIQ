@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using RemindIQ.Models;
-using RemindIQ.Views;
+using Plugin.LocalNotification;
+using RemindIQ.Services;
 
 namespace RemindIQ.Views
 {
@@ -16,9 +14,21 @@ namespace RemindIQ.Views
     public partial class MainPage : ContentPage
     {
         int currentPage;
+
+        static NotificationHelper notificationHelper;
+
         public MainPage()
         {
             InitializeComponent();
+
+            if (notificationHelper == null)
+            {
+                notificationHelper = new NotificationHelper();
+            }
+
+            //not sure what these did in the sample code
+            //NotifyDatePicker.MinimumDate = DateTime.Today;
+            //NotifyTimePicker.Time = DateTime.Now.TimeOfDay.Add(TimeSpan.FromSeconds(10));
         }
 
         public Reminder Reminder
@@ -43,8 +53,10 @@ namespace RemindIQ.Views
 
         private async void Refresh_Button(object sender, EventArgs e)
         {
+            notificationHelper.UpdateDistanceManual();
             reminderListView.ItemsSource = await App.DatabaseHelper.GetRemindersAsync(currentPage);
         }
+        
         private void Load_Page(object sender, EventArgs e)
         {
             var button = (Button)sender;
@@ -87,7 +99,7 @@ namespace RemindIQ.Views
             if (menuItem.Text == "Complete")
             {
                 reminder.Status = 2;
-                await App.DatabaseHelper.UpdateReminderAync(reminder);
+                await App.DatabaseHelper.UpdateReminderAsync(reminder);
 
             }
             if (menuItem.Text == "Delete")
