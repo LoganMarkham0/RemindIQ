@@ -17,6 +17,7 @@ namespace RemindIQ.Views
             InitializeComponent();
             new Thread(() =>
             {
+                Thread.Sleep(App.RefreshInterval);
                 Thread.Sleep(App.RefreshInterval / 2);
                 while (true)
                 {

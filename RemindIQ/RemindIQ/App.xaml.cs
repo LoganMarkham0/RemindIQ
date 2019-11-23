@@ -28,6 +28,7 @@ namespace RemindIQ
         }
         private void UpdaterThread()
         {
+            Thread.Sleep(RefreshInterval);
             while (true)
             {
                 Thread.Sleep(RefreshInterval);
