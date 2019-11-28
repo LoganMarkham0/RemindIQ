@@ -35,6 +35,10 @@
                 <Button x:Name="AddReminder" Text="Add Reminder" Clicked="AddReminder_Clicked" Margin="15,0"/>
             </StackLayout>
 
+            <StackLayout>
+                <Label x:Name="RangeErrorMessage" Margin="15, 0" TextColor="Red" FontSize="Small" HorizontalOptions="Center"/>
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
