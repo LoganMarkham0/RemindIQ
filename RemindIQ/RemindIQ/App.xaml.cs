@@ -13,18 +13,15 @@ namespace RemindIQ
     public partial class App : Application
     {
         public static int RefreshInterval = 10000;
-        public static DatabaseHelper databaseHelper;
-        public static LocationHelper locationHelper;
-        public static NotificationHelper notificationHelper;
+        public static DatabaseHelper databaseHelper = new DatabaseHelper(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "RemindIQ.db3"));
+        public static LocationHelper locationHelper = new LocationHelper();
+        public static NotificationHelper notificationHelper = notificationHelper = new NotificationHelper();
         public App()
         {
             InitializeComponent();
+            locationHelper.UpdateAllDistances();
             NotificationCenter.Current.NotificationTapped += LoadPageFromNotification;
             MainPage = new NavigationPage(new MainPage());
-            databaseHelper = new DatabaseHelper(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "RemindIQ.db3"));
-            locationHelper = new LocationHelper();
-            notificationHelper = new NotificationHelper();
-            locationHelper.UpdateAllDistances();
             new Thread(new ThreadStart(UpdaterThread)).Start();
         }
         private void UpdaterThread()

@@ -13,7 +13,6 @@ namespace RemindIQ.Services
         List<Reminder> fromDatabase;
         public LocationHelper()
         {
-
         }
         public async Task<Location> GetRemoteLocation(string address)
         {

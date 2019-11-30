@@ -22,7 +22,7 @@
             <StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Range: " FontSize="Title" Margin="15,0,0,0"/>
-                    <Slider x:Name="RangeSliderField" Maximum="100" MinimumTrackColor="#2196F3" HorizontalOptions="FillAndExpand" ValueChanged="RangeSlider_ValueChanged"/>
+                    <Slider x:Name="RangeSliderField" Maximum="50" MinimumTrackColor="#2196F3" HorizontalOptions="FillAndExpand" ValueChanged="RangeSlider_ValueChanged"/>
                     <Label x:Name="RangeLabelField"  Margin="15,0"/>
                 </StackLayout>
             </StackLayout>
