@@ -24,6 +24,7 @@ namespace RemindIQ
             databaseHelper = new DatabaseHelper(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "RemindIQ.db3"));
             locationHelper = new LocationHelper();
             notificationHelper = new NotificationHelper();
+            locationHelper.UpdateAllDistances();
             new Thread(new ThreadStart(UpdaterThread)).Start();
         }
         private void UpdaterThread()

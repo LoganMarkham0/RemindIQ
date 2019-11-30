@@ -126,7 +126,6 @@ namespace RemindIQ.Views
             {
                 RangeErrorMessage.Text = null;
             }
-
             return isCorrect;
         }
     }
