@@ -1,57 +1,44 @@
 ﻿using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 using RemindIQ.Services;
 using System.IO;
 using RemindIQ.Views;
+using System.Threading;
+using Plugin.LocalNotification;
+using System.Collections.Generic;
+using RemindIQ.Models;
 
 namespace RemindIQ
 {
     public partial class App : Application
     {
-        public static DatabaseHelper databaseHelper;
-        public static LocationHelper locationHelper;
+        public static int RefreshInterval = 10000;
+        public static DatabaseHelper databaseHelper = new DatabaseHelper(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "RemindIQ.db3"));
+        public static LocationHelper locationHelper = new LocationHelper();
+        public static NotificationHelper notificationHelper = notificationHelper = new NotificationHelper();
         public App()
         {
             InitializeComponent();
+            locationHelper.UpdateAllDistances();
+            NotificationCenter.Current.NotificationTapped += LoadPageFromNotification;
             MainPage = new NavigationPage(new MainPage());
-            //MainPage = new MainPage();
+            new Thread(new ThreadStart(UpdaterThread)).Start();
         }
-        public static DatabaseHelper DatabaseHelper
+        private void UpdaterThread()
         {
-            get
+            Thread.Sleep(RefreshInterval);
+            while (true)
             {
-                if (databaseHelper == null)
-                {
-                    databaseHelper = new DatabaseHelper(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "RemindIQ.db3"));
-                }
-                return databaseHelper;
+                Thread.Sleep(RefreshInterval);
+                locationHelper.UpdateAllDistances();
             }
         }
-        public static LocationHelper LocationHelper
+        private async void LoadPageFromNotification(NotificationTappedEventArgs e)
         {
-            get
-            {
-                if (locationHelper == null)
-                {
-                    locationHelper = new LocationHelper();
-                }
-                return locationHelper;
-            }
-        }
-        protected override void OnStart()
-        {
-            // Handle when your app starts
-        }
-
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
+            var serializer = new ObjectSerializer<List<string>>();
+            var list = serializer.DeserializeObject(e.Data);
+            Reminder tappedReminder = await databaseHelper.GetReminderAsync(int.Parse(list[0]));
+            await MainPage.Navigation.PushModalAsync(new NavigationPage(new ReminderPage(tappedReminder)));
         }
     }
 }

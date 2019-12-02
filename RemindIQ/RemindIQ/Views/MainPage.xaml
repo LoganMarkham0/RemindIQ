@@ -6,12 +6,11 @@
              mc:Ignorable="d"
              x:Class="RemindIQ.Views.MainPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Refresh" Order="Primary" Clicked="Refresh_Button"/>
+        <ToolbarItem Text="Refresh" Order="Primary" Clicked="Refresh_Clicked"/>
         <ToolbarItem Text="Add" Order="Primary" Clicked="Menu_Item"/>
         <ToolbarItem Text="About" Order="Secondary" Clicked="Menu_Item"/>
     </ContentPage.ToolbarItems>
     <StackLayout>
-
         <StackLayout BackgroundColor="DodgerBlue" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
             <Button Text="Open" TextColor="White" BackgroundColor="DodgerBlue" HorizontalOptions="FillAndExpand" Clicked="Load_Page"/>
             <Button Text="Missed" TextColor="White" BackgroundColor="DodgerBlue" HorizontalOptions="FillAndExpand" Clicked="Load_Page"/>
@@ -44,9 +43,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        
     </StackLayout>
 
 </ContentPage>

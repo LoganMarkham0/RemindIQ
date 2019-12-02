@@ -1,8 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Xamarin.Essentials;
-using RemindIQ;
 using RemindIQ.Models;
 
 namespace RemindIQ.Views
@@ -20,8 +18,10 @@ namespace RemindIQ.Views
             isNew = true;
             Title = "New Reminder";
             AddReminder.Text = "Add Reminder";
-
+            reminder.HasBeenNotified = false;
+            reminder.Status = 0;
         }
+
         public ReminderPage(Reminder reminder)
         {
             InitializeComponent();
@@ -36,33 +36,50 @@ namespace RemindIQ.Views
             NotesField.Text = reminder.Notes;
         }
 
-        public Reminder Reminder
-        {
-            get => default(Reminder);
-            set
-            {
-            }
-        }
-
         async void AddReminder_Clicked(object sender, EventArgs e)
         {
             reminder.Name = NameField.Text;
             reminder.DestinationAddress = LocationField.Text;
-            reminder.Latitude = (await App.LocationHelper.GetRemoteLocation(LocationField.Text)).Latitude;
-            reminder.Longitude = (await App.LocationHelper.GetRemoteLocation(LocationField.Text)).Longitude;
             reminder.Range = RangeSliderField.Value;
-            reminder.DistanceToDestination = App.LocationHelper.GetDistanceBetween(await App.LocationHelper.GetCurrentLocation(), await App.LocationHelper.GetRemoteLocation(LocationField.Text));
             reminder.Notes = NotesField.Text;
-            reminder.Status = 0;
-            if (isNew)
+
+            // if user enters necessary input, proceed with calculations
+            if (CorrectUserInput())
             {
-                await App.DatabaseHelper.AddReminderAsync(reminder);
+                bool addressFound = true;
+
+                // if address can not be found using GeoCoding, alert user
+                try
+                {
+                    await App.locationHelper.GetRemoteLocation(LocationField.Text);
+                }
+                catch (Exception)
+                {
+                    addressFound = false;
+                    LocationField.Text = null;
+                    LocationField.PlaceholderColor = Color.Red;
+                    LocationField.Placeholder = "Address not found";
+                }
+
+                if (addressFound)
+                {
+                    reminder.Latitude = (await App.locationHelper.GetRemoteLocation(LocationField.Text)).Latitude;
+                    reminder.Longitude = (await App.locationHelper.GetRemoteLocation(LocationField.Text)).Longitude;
+                    reminder.DistanceToDestination = App.locationHelper.GetDistanceBetween(await App.locationHelper.GetCurrentLocation(), await App.locationHelper.GetRemoteLocation(LocationField.Text));
+                    reminder.Notes = NotesField.Text;
+                    reminder.Status = 0;
+                    if (isNew)
+                    {
+                        await App.databaseHelper.AddReminderAsync(reminder);
+                    }
+                    else
+                    {
+                        await App.databaseHelper.UpdateReminderAsync(reminder);
+                    }
+
+                    await Navigation.PopModalAsync();
+                }
             }
-            else
-            {
-                await App.DatabaseHelper.UpdateReminderAync(reminder);
-            }
-            await Navigation.PopModalAsync();
         }
 
         async void Back_Clicked(object sender, EventArgs e)
@@ -73,6 +90,43 @@ namespace RemindIQ.Views
         private void RangeSlider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
             RangeLabelField.Text = String.Format("{0:##0.0} {1}", e.NewValue.ToString(), "Miles");
+        }
+
+        /// <summary>
+        /// Checks to see if the user input entered is functional.
+        /// </summary>
+        /// <returns>Will return true if user input does not cause any errors</returns>
+        private bool CorrectUserInput()
+        {
+            bool isCorrect = true;
+
+            // Check to make sure the reminder object has a name
+            if (reminder.Name == null)
+            {
+                isCorrect = false;
+                NameField.PlaceholderColor = Color.Red;
+                NameField.Placeholder = "Reminder Name cannot be empty";
+            }
+
+            // Check to make sure the user enters a location
+            if (reminder.DestinationAddress == null)
+            {
+                isCorrect = false;
+                LocationField.PlaceholderColor = Color.Red;
+                LocationField.Placeholder = "Reminder location cannot be empty";
+            }
+
+            // If the user did not select a range
+            if (reminder.Range == 0)
+            {
+                isCorrect = false;
+                RangeErrorMessage.Text = "Please choose a range for your reminder.";
+            }
+            else
+            {
+                RangeErrorMessage.Text = null;
+            }
+            return isCorrect;
         }
     }
 }

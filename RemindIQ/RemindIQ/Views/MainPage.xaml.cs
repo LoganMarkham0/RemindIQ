@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using RemindIQ.Models;
-using RemindIQ.Views;
+using System.Threading;
 
 namespace RemindIQ.Views
 {
@@ -19,54 +15,44 @@ namespace RemindIQ.Views
         public MainPage()
         {
             InitializeComponent();
-        }
 
-        public Reminder Reminder
-        {
-            get => default(Reminder);
-            set
+            new Thread(() =>
             {
-            }
+                Thread.Sleep(App.RefreshInterval);
+                Thread.Sleep(App.RefreshInterval / 2);
+                while (true)
+                {
+                    Thread.Sleep(App.RefreshInterval);
+                    reminderListView.Dispatcher.BeginInvokeOnMainThread((Action)(async () => reminderListView.ItemsSource = await App.databaseHelper.GetRemindersAsync(currentPage)));
+                }
+            }).Start();
         }
-
         protected override async void OnAppearing()
         {
             base.OnAppearing();
             Title = "Open";
             currentPage = 0;
-            reminderListView.ItemsSource = await App.DatabaseHelper.GetRemindersAsync(currentPage);
+            reminderListView.ItemsSource = await App.databaseHelper.GetRemindersAsync(currentPage);
         }
-        private async void Refresh()
-        {
-            reminderListView.ItemsSource = await App.DatabaseHelper.GetRemindersAsync(currentPage);
-        }
-
-        private async void Refresh_Button(object sender, EventArgs e)
-        {
-            reminderListView.ItemsSource = await App.DatabaseHelper.GetRemindersAsync(currentPage);
-        }
-        private void Load_Page(object sender, EventArgs e)
+        private async void Load_Page(object sender, EventArgs e)
         {
             var button = (Button)sender;
             if (button.Text == "Open")
             {
                 Title = "Open";
                 currentPage = 0;
-                Refresh();
             }
             if (button.Text == "Missed")
             {
                 Title = "Missed";
                 currentPage = 1;
-                Refresh();
             }
             if (button.Text == "Closed")
             {
                 Title = "Closed";
                 currentPage = 2;
-                Refresh();
             }
-
+            reminderListView.ItemsSource = await App.databaseHelper.GetRemindersAsync(currentPage);
         }
         private async void Menu_Item(object sender, EventArgs e)
         {
@@ -87,21 +73,23 @@ namespace RemindIQ.Views
             if (menuItem.Text == "Complete")
             {
                 reminder.Status = 2;
-                await App.DatabaseHelper.UpdateReminderAync(reminder);
+                await App.databaseHelper.UpdateReminderAsync(reminder);
 
             }
             if (menuItem.Text == "Delete")
             {
-                await App.DatabaseHelper.DeleteReminderAsync(reminder);
+                await App.databaseHelper.DeleteReminderAsync(reminder);
             }
-            Refresh();
+            reminderListView.ItemsSource = await App.databaseHelper.GetRemindersAsync(currentPage);
         }
-
-
         private async void Show_Reminder(object sender, SelectedItemChangedEventArgs e)
         {
             Reminder reminder = (Reminder)e.SelectedItem;
             await Navigation.PushModalAsync(new NavigationPage(new ReminderPage(reminder)));
+        }
+        private async void Refresh_Clicked(object sender, EventArgs e)
+        {
+            reminderListView.ItemsSource = await App.databaseHelper.GetRemindersAsync(currentPage);
         }
     }
 }
